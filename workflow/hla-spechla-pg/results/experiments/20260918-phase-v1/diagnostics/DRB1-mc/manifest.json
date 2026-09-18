@@ -1,0 +1,27 @@
+{
+  "configuration": {
+    "donor": "HG00706",
+    "driver_sha256": "cc52690778b80d0b762391626de1d3a6f7f51c5264ef33c4d14f22e8a31ee981",
+    "fold": 0,
+    "gene": "DRB1",
+    "inputs": {
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.in.fa": "899de4a0479844b16989155873350baea528a6ce2b9b64d36523a63935110d6d",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.mc.dist": "531f346fee99afc2f668cf99c513421d75593d5a595ce711e5405a8d2a7f78a3",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.mc.giraffe.gbz": "bd4932db51d69fe1eed79dfd9639d910961c3c279c6fd6287669cef73fc8b990",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.mc.min": "3a9280c1181216981ea0b3de8c0ed14a61c84c6ec81274b5898fb05a912bc8c6",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.mc.zipcodes": "3b03663df8d1ec9622d367715d7b4de0df63d0b650f399fb9d113a6173d6b9da",
+      "/home/leechuck/hla/spechla-pg/runs/HG00706/bin/DRB1.R1.fq.gz": "1309e90677c2fca7f1aa327848b133d5c8cef67ce490fc3a670ca65b8b1f7012",
+      "/home/leechuck/hla/spechla-pg/runs/HG00706/bin/DRB1.R2.fq.gz": "8d46c342c698442fe6cd481c1ab7a5d5738a5a3af573d07e5ee3e396c43cc518",
+      "/home/leechuck/hla/spechla-pg/source/excluded_paths.tsv": "7ed82c4279ce01bbf4dee71d559c9452081f55bae31684305965c9423b7ebc89",
+      "/home/leechuck/hla/spechla-pg/source/validation_groups.tsv": "b268a06f519aee2f18ce6c04e1c91fb4bd3da62e42bb73e713e90018c46321f0"
+    },
+    "kind": "mc",
+    "pairs": 256,
+    "threads": 4,
+    "timeout_seconds": 300
+  },
+  "error": "ValueError('Graph path preservation/leakage gate failed; see preservation.json')",
+  "finished": 1789701790.7041538,
+  "started": 1789701766.39782,
+  "status": "failed"
+}

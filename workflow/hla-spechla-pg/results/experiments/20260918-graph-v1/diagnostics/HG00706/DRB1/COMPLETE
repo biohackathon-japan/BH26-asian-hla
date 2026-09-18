@@ -1,0 +1,12 @@
+{
+  "configuration_sha256": "de975932ce902e0fa913462989b195d48c7d9b578b6f8fd4d35629b8349503de",
+  "finished": 1789702476.703632,
+  "outputs": {
+    "graph.vcf": "28bae041fb4d61b203eb49a68072172f174457bec4a86cf5caf984a61bbafb77",
+    "preservation.json": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+    "projected.bam": "378b0004d891f03f43ea40287e5508babdbf06354fede9cf758a5183b848519e",
+    "reads.gam": "d610cd9f43112cbccaabd417024262dfdff3b5566fabbadf9f941d65f538ca12",
+    "structural_candidates.tsv": "4335136104f4b855843cb9608d95299cdfba82fd2b674a055284f6bfb07ddb0b",
+    "summary.json": "63e3ab53dad2c4bacf211c5c820a34c0498b8a421fdfe665868b8c0f0374b35c"
+  }
+}

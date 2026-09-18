@@ -1,0 +1,49 @@
+{
+  "fragment_distribution": {
+    "mean": 402.85921843687373,
+    "pairs": 5988,
+    "stdev": 64.80973466403559
+  },
+  "graph_support": {
+    "aligned_bases": 194700,
+    "mapped": 1298,
+    "mapq20": 1298,
+    "off_reference_node_bases": 45465,
+    "reads": 1298
+  },
+  "graph_variant_records": 305,
+  "linear": {
+    "mapped": 1067,
+    "mapq20": 1067,
+    "primary": 1298,
+    "proper_pair": 1028,
+    "query_bases": 194700,
+    "softclip_bases": 2001
+  },
+  "nonreference_indel50_alleles": 0,
+  "nonreference_records": 145,
+  "projection": {
+    "mapped": 1075,
+    "mapq20": 1075,
+    "primary": 1298,
+    "proper_pair": 1036,
+    "query_bases": 194700,
+    "softclip_bases": 3754
+  },
+  "read_pairs": 649,
+  "subset": "all binned pairs",
+  "timing_seconds": {
+    "alignment_stats": 0.03648417885415256,
+    "bam_check": 0.01747914613224566,
+    "call": 0.16987617500126362,
+    "export_paths": 0.27258186996914446,
+    "giraffe": 1.0719746388494968,
+    "linear_bam": 0.03465574001893401,
+    "linear_bwa": 0.11906341509893537,
+    "pack": 0.16943330294452608,
+    "reads_json": 0.21974063897505403,
+    "reference_json": 0.03487959178164601,
+    "reference_walk": 0.0343203479424119,
+    "surject": 1.074215830070898
+  }
+}

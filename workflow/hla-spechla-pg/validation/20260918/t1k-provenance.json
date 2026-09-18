@@ -1,0 +1,231 @@
+{
+  "records": [
+    {
+      "donor": "HG00658",
+      "complete": true,
+      "sha256": "6c3fba53fb9c849af470861f0ea2987acbd0d43ed9a2a40c9240cc8165e7eede",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG00658",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02132",
+      "complete": true,
+      "sha256": "45d116b54e51cbbc1db5ef48b863d88784de28c7f996d30d8463459e19497d79",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02132",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02178",
+      "complete": true,
+      "sha256": "7882efac77287e22d16ab083d0e6b6f499f8bd4a887d8056d763cfde74f23c7f",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02178",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG03831",
+      "complete": true,
+      "sha256": "969b56f28c1e464b5e427ad2ab0e904aa2d9ed0c74c5c27ebb14c5409c9023ad",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG03831",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG03874",
+      "complete": true,
+      "sha256": "8e9ac362056dc4e9ab4c2b333b0d1d5ee77d3fd22a68541af0456eee572fe1e2",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG03874",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG04199",
+      "complete": true,
+      "sha256": "72e2f5b6d8df53cc7cf02cb6e019de67832b91a1009d223b9e44c0c3c5d504a4",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG04199",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA18608",
+      "complete": true,
+      "sha256": "003b86926d7d344531eb4e3f3847f65c86a2d367c2ec07d025eec452dd3829e8",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA18608",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA20905",
+      "complete": true,
+      "sha256": "0aca8ffdd79eb9cc9e3a0f67807507e38b9015e8161a168c114d8211c4d945c1",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA20905",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02027",
+      "complete": true,
+      "sha256": "1908dc7a98ee49ddee8a8e652d89bfb0318554af8ee1a9d01a4f09a51f9e0936",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02027",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02391",
+      "complete": true,
+      "sha256": "e53041a41a8062d6075dd51fa9d1e4e9c48bc6e2ebf9da305b0a05de193e7f45",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02391",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02602",
+      "complete": true,
+      "sha256": "19afd4dd69bf614d73f0469e1a0c4f42207ca48d2cff90a2a4bd8d31df528269",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02602",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG04115",
+      "complete": true,
+      "sha256": "9d4241f1c7a2066111fd7986cc635be7bb72e43f01690d0f941d03aad6786618",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG04115",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG04187",
+      "complete": true,
+      "sha256": "057e27ee13ec5158ca90d719192656df5beb754da81df33dd0ddb0babfd8b1ae",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG04187",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA18570",
+      "complete": true,
+      "sha256": "ffcd976b69d681ae4b087370239ff5476f1a623557718e2519db3af45cbdef0d",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA18570",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA18940",
+      "complete": true,
+      "sha256": "2302ecb7b55fd56701c80938b8293152c8a3c10799cb4a78a272c2df5cd4b82c",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA18940",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA21144",
+      "complete": true,
+      "sha256": "616bf6f72012102b7db143014a0227793f38e4c7ac7e27a6bd34f6ee0b1083b8",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA21144",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG00558",
+      "complete": true,
+      "sha256": "03a12914e567db12b7effb20c2beeb81b3df383cc543af7b93ea0cfa0511869b",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG00558",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02165",
+      "complete": true,
+      "sha256": "e5383eb24631be4d3e961a7fbc50c2648e22057a29104ed07ff59d246d39a916",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02165",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02523",
+      "complete": true,
+      "sha256": "99c4f2124db5945c083c493e8679a685ec0a643ecc1a30eccb369736668d3d66",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02523",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02738",
+      "complete": true,
+      "sha256": "1e6ab6f2b19d9306289520189548afcae7717cd166f012ad12cb7b05d044327e",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02738",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG03688",
+      "complete": true,
+      "sha256": "2db702f8360616a8be7ecbfef9e9d2118e748153fb79f422d86a01e886f4f761",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG03688",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG03927",
+      "complete": true,
+      "sha256": "5dddb119091fa5460142417ef7679de3ee1cb9c0eac503f255c7190bd43f6a33",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG03927",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA18952",
+      "complete": true,
+      "sha256": "ded52ab548e993b2c6812ee4341447b51736a3f770d14867dfe03e72654eb5fe",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA18952",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA21106",
+      "complete": true,
+      "sha256": "9d0eb03dc2fd070e04e47d611c1b0d3b4ceee606ce759d952caa02c7a6a514d4",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA21106",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG00609",
+      "complete": true,
+      "sha256": "d8babceafe71403f8a50c8acee8684c722e97630a0a67cfe487b68188348af1f",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG00609",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG02074",
+      "complete": true,
+      "sha256": "813ad21778599396d434c9fec76a2412c0026a2d4a8c9f3126d54cfe9f50db74",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG02074",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG03017",
+      "complete": true,
+      "sha256": "f9a9d6ddbe84b05f196991aa361a12e6833edfd3a3f031ff5098e2c39e8e75e7",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG03017",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG03784",
+      "complete": true,
+      "sha256": "8a1785faa817d099da24422399f10ebb18d1dc435acc383a0996bd97d1a87337",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG03784",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG04157",
+      "complete": true,
+      "sha256": "51271826d05160a0bdeb02cc4c4284fdcd727775d141b817a76d62aca2967139",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG04157",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "HG04204",
+      "complete": true,
+      "sha256": "d61afeaf85fad708d83e62f0020c32ef94fc5875f5f9b7df93257488130a51d5",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/HG04204",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA18747",
+      "complete": true,
+      "sha256": "ecf0ae93c6ade2b427d24782e5410d254845c6dfe62e91064638a836a344f10a",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA18747",
+      "local_hash_matches": true
+    },
+    {
+      "donor": "NA19088",
+      "complete": true,
+      "sha256": "2e841d87c67dbb6b7019c852604c72a5de2404495a22053917380870a01af329",
+      "read_root": "/lustre10/home/leechuck/hla/hla-typer/reads/NA19088",
+      "local_hash_matches": true
+    }
+  ],
+  "job_script": "hla-bench/comparators/t1k.sbatch",
+  "job_script_sha256": "a06d040536a549ded3909a083f01ac64891e8281b5b936f8e4fb7db4fbfff072",
+  "limitation": "Legacy T1K COMPLETE markers do not contain historical FASTQ hashes."
+}

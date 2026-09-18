@@ -1,0 +1,21 @@
+{
+  "commit": "9a6c7d7cdb360e3b20d3549e9c1782637bce7f99",
+  "files": {
+    "dogohla.py": "1211c401f6bddbb02f31bd7e2f298a9415ee5e3874bc1c1a4e88aa91eac48890",
+    "experiment.py": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+    "phase_linkage.py": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+    "build_refs.py": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+    "graph_diagnostic.py": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+    "structural_overlay.py": "8385e47c3b5c99f6b9960d604b51c29598935d03ffdcb4a9ceb1d4d3fc23c35e",
+    "spechla_pg.sh": "aa815fc71ff4d928528d95b7f59ccb15d9aeb40e39f187ccc490aca471e1eb68",
+    "build_graph_pggb.sh": "cc52c0359857ca9adc50cf4888f3e2c98c6c29d2717eb79ab4500c539e57dfbc",
+    "designate.py": "04675b845a9a77339591503155183ea32bb4b711f2cec47d0aca3ab71963b65a",
+    "VERSION": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67"
+  },
+  "root": "/home/leechuck/hla/spechla-pg/validations/dogohla-v0.1.0-20260918",
+  "jobs": {
+    "prepare": "20663742",
+    "graphs": "20663743",
+    "donors": "20663744"
+  }
+}

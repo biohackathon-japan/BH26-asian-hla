@@ -26,21 +26,21 @@ authors_short: ""
 # Abstract
 
 Human leukocyte antigen (HLA) typing from short reads requires distinguishing closely related
-genes and resolving highly polymorphic alleles. Pangenomes provide complete haplotype sequences
-that can complement allele databases, but their usefulness depends on how those sequences enter
-the typing method. At BioHackathon Japan 2026, we constructed a 754-haplotype major
-histocompatibility complex (MHC) panel enriched for Asian and Arab donors and evaluated several
-ways to use it. In 40 East and South Asian donors, PanGenie with the full panel recovered more
-assembly-derived genotypes containing structural variation than an HPRC-only panel after we
-corrected a filter that discarded sites with missing training genotypes. The gains were 3.89 and
-1.97 percentage points in the two strata. For named HLA genotypes, Locityper with the full panel
-matched 31 of 39 eligible experimental genotypes, compared with 28 for HPRC-only, 34 for T1K and
-36 for SpecHLA. We also developed DōgoHLA, an extension of SpecHLA that combines panel-assisted
-read collection, repaired phasing and guarded reconstruction of graph-supported noncoding indels.
-In eight development donors, exact whole-gene reconstructions increased from 36 to 57 of 128
-haplotypes. These experiments identify reference representation, callable-site retention and
-haplotype reconstruction as distinct determinants of HLA typing performance. Evaluation on new
-donors and independently constructed graphs is the next step.
+genes and resolving highly polymorphic alleles. We present DōgoHLA, a new population-specific
+method for HLA sequence reconstruction built around an Asian- and Arab-enriched pangenome.
+We constructed a 754-haplotype major histocompatibility complex (MHC) panel and used its
+sequences for read collection and its locus graphs for structural inference. DōgoHLA combines
+these pangenome inputs with read-backed phasing and guarded reconstruction of graph-supported
+noncoding indels. In eight development donors, DōgoHLA reconstructed 57 of 128 whole-gene
+haplotypes exactly, compared with 36 for native SpecHLA, and reduced total sequence edit
+distance by 22.8%. To assess the reference resource separately, we compared full and HPRC-only
+panels in 40 East and South Asian donors. After correcting a callable-site filter, PanGenie
+with the full panel recovered more assembly-derived SV-bearing genotypes, with gains of 3.89
+and 1.97 percentage points in the two strata. For named HLA genotypes, full-panel Locityper
+matched 31 of 39 eligible experimental genotypes, compared with 28 for HPRC-only, 34 for T1K
+and 36 for SpecHLA. These complementary experiments assess the population-specific reference
+and the reconstruction method. Evaluation of the frozen DōgoHLA method on additional donors
+was ongoing at the report cutoff.
 
 # Introduction
 
@@ -63,16 +63,23 @@ locus haplotypes using read alignment and depth [@Prodanov2025Locityper]. These 
 make the choice of reference sequences and their representation part of the inference problem.
 A larger panel can add informative alleles while also changing which sites remain callable.
 
-We investigated how an MHC panel enriched for Asian and Arab haplotypes can support HLA typing.
+We developed DōgoHLA as a new, natively pangenome-based method for population-specific HLA
+typing. Its reference represents Asian and Arab haplotypes, and population-specific sequences
+enter both read collection and structural inference. DōgoHLA reconstructs the two gene
+haplotypes by combining read-backed coding variation with supported noncoding changes from
+locus graphs. This connects the population reference to sequence reconstruction at two stages
+of the method.
+
 First, we combined assemblies and graph-derived sequences from several pangenome projects,
-annotated HLA genes and constructed a whole-MHC graph. We then compared a graph-consensus
-pipeline with direct-read typing and evaluated full and HPRC-only reference panels in 40 East
-and South Asian donors. We assessed graph-variant recovery, named HLA genotypes and RCCX/C4
-structural signatures as separate outcomes. Finally, we developed DōgoHLA, a SpecHLA extension
-that uses the panel for read collection and selected structural reconstruction. This report
-presents the completed panel comparisons and eight-donor development results; the prospective
-DōgoHLA extension was ongoing at the analysis cutoff on 18 September 2026. The project repository is <https://github.com/leechuck/pangenome-bh26>; the appendix
-identifies the working analysis artifacts and their deposit status.
+annotated HLA genes and constructed AsianPGR, the population-specific MHC reference. We evaluated alternative uses
+of this resource through graph-consensus typing, full versus HPRC-only panel comparisons in
+40 East and South Asian donors, and RCCX/C4 structural typing. We then evaluated DōgoHLA's
+whole-gene reconstruction in eight development donors, with controls for phasing, reference
+database and graph inference. This report presents the completed panel comparisons and
+DōgoHLA development results. Evaluation of the frozen method on 32 additional donors was
+ongoing at the analysis cutoff on 18 September 2026. DōgoHLA and AsianPGR are released together at
+<https://github.com/biohackathon-japan/BH26-asian-hla/releases/tag/v0.1.0>, with method source,
+graph indexes, checksums and the frozen analysis artifacts described in the appendix.
 
 # Methods
 
@@ -124,7 +131,7 @@ ambiguous or unmatched labels remained unresolved.
 
 ## Whole-MHC graph and consensus-based typing
 
-We built a whole-MHC graph from all 754 entries with Cactus v3.3.0 and the Minigraph-Cactus
+We built AsianPGR, a whole-MHC graph from all 754 entries with Cactus v3.3.0 and the Minigraph-Cactus
 algorithm [@Hickey2024MinigraphCactus], using GRCh38 and CHM13 as reference paths. The command
 requested clipped and full GFA/GBZ graphs, Giraffe indexes, VCF, full odgi output and
 visualisations. The build used 32 cores and 240 GB on the NIG supercomputer. We assessed mapping
@@ -205,28 +212,37 @@ the earlier sketch, calibrated reference depth and C4Investigator [@Marin2024C4I
 C4Investigator's total-copy calibration used the 18 pilot donors. Structural truth comprised
 assembly annotations, including provisional CYP21/TNX prototype assignments.
 
-## DōgoHLA development and evaluation
+## DōgoHLA: population-specific pangenome inference
 
-DōgoHLA v0.1.0 extends SpecHLA v1.0.12 with panel-assisted read collection, corrected scoring of
-phase alternatives, IPD-IMGT/HLA v3.65 phase references and graph-supported reconstruction of
-selected noncoding indels. The phase repair groups scores for complementary haplotypes under
-the same phase alternative. For DRB1, we preserved reference paths in a normalised pggb graph,
-aligned reads with Giraffe and genotyped represented alleles. We decomposed confident homozygous
-graph alleles into primitive long indels with affine-gap alignment and applied eligible noncoding
-changes while preserving read-phased coding variants. Graph calls required PASS status,
-genotype and variant quality ≥20, depth ≥10 and at least five reads supporting the alternate
-allele. Candidate indels were ≥50 bp and required valid reference sequence, mappable boundaries
-and unique flanks. We also removed the fixed 11-kb DRB1 query
-crop in the naming step. Frozen thresholds and code snapshots are retained with the experiments.
+DōgoHLA v0.1.0 takes short reads and a population-specific panel of annotated MHC haplotypes
+as inputs and returns reconstructed diploid HLA gene sequences and allele names. We built its
+reference from the Asian- and Arab-enriched panel described above, excluding test donors and
+known relatives. Panel sequences guide read collection, and locus graphs supply the represented
+structural alleles used during reconstruction. These are integral inputs to DōgoHLA's inference.
+
+We implemented read alignment, small-variant calling and initial sequence reconstruction using
+components from SpecHLA v1.0.12 [@DeepOmicsSpecHLA]. We corrected phase-alternative scoring
+to group complementary haplotype scores under the same phase alternative and used
+IPD-IMGT/HLA v3.65 phase references. For DRB1 structural inference, we preserved population
+haplotype paths in a normalised pggb graph, aligned reads with Giraffe and genotyped represented
+alleles. We decomposed confident homozygous graph alleles into primitive long indels with
+affine-gap alignment and applied eligible noncoding changes while preserving read-phased coding
+variants. Graph calls required PASS status, genotype and variant quality ≥20, depth ≥10 and
+at least five reads supporting the alternate allele. Candidate indels were ≥50 bp and required
+valid reference sequence, mappable boundaries and unique flanks. The naming step used the
+reconstructed sequences with the fixed 11-kb DRB1 query crop removed. Frozen thresholds and
+code snapshots are retained with the experiments.
+
+## DōgoHLA evaluation
 
 Development used eight fold-0 donors, with their families excluded from reference inputs.
 We compared reconstructed sequences with assembly-derived truth at eight genes per donor,
 assigning the two haplotypes to minimise total global edit distance. Exactness required a global
 whole-gene match; masked N bases counted as mismatches. We separately scored eligible two-field
 genotypes. Controls compared phasing changes, phase-reference databases, graph reconstruction
-and naming-only changes. The prospective extension froze the method before evaluation on the
+and naming-only changes. The prospective evaluation froze the method before inference on the
 remaining 32 donors, with native SpecHLA and a DōgoHLA arm without graph reconstruction as
-comparators. This extension was incomplete at the report cutoff.
+comparators. This evaluation was incomplete at the report cutoff.
 
 # Results
 
@@ -377,8 +393,9 @@ the reference panel.
 
 ## DōgoHLA improves whole-gene reconstruction in development donors
 
-We next tested changes to phasing and sequence reconstruction within SpecHLA. Across the eight
-development donors, the selected DōgoHLA candidate increased exact whole-gene matches from
+We evaluated whether DōgoHLA improved whole-gene reconstruction by comparing it with native
+SpecHLA on the same eight development donors. The selected DōgoHLA candidate increased exact
+whole-gene matches from
 36/128 in the saved native SpecHLA runs to 57/128. Total global edit distance decreased from
 97,965 to 75,634 (22.8%), and correct two-field genotypes increased from 61/63 to 62/63.
 Edit distance improved in all eight donors. These values use global whole-gene alignment
@@ -393,25 +410,33 @@ noncoding DRB1 insertions in two donors. An earlier whole-block replacement had 
 coding differences and reduced two-field correctness to 60/63; decomposing supported changes
 into eligible noncoding indels preserved the read-phased coding alleles. The selected method
 therefore combines phasing repair with a narrower structural reconstruction step. Its prospective
-32-donor extension will assess these choices with the method fixed before inference.
+32-donor evaluation will assess these choices with the method fixed before inference.
 
 # Discussion
 
-We constructed an MHC panel enriched for Asian and Arab haplotypes and evaluated how its
-sequences contribute to variant genotyping, named HLA typing and gene reconstruction. The
-strongest evidence for the full panel came from recovery of SV-bearing assembly genotypes after
-callable-site repair. This result connects reference diversity to an implementation requirement:
-added haplotypes are useful only when the panel representation preserves the sites at which they
-can contribute evidence. The smaller and less certain named-HLA gains also show why variant
-recovery and allele designation require separate evaluation.
+DōgoHLA introduces a population-specific HLA reconstruction method in which the pangenome
+supplies both read-collection sequences and structural alleles. We built an Asian- and
+Arab-enriched MHC reference, combined its locus graphs with read-backed haplotype inference,
+and evaluated the resulting sequences against assembly-derived truth. In the eight development
+donors, DōgoHLA increased exact whole-gene recovery and reduced sequence edit distance relative
+to native SpecHLA. This provides an initial evaluation of the method with its population-specific
+reference.
 
-The comparisons build on established graph, haplotype and sequence-reconstruction methods.
-PanGenie supplied variant inference, Locityper supplied complete-locus selection, and SpecHLA
-supplied read-based reconstruction. DōgoHLA extends the last approach with panel-assisted read
-collection, repaired phasing and selected graph-supported noncoding changes. In the development
-controls, phasing repair accounted for the increase in exact whole-gene matches; the guarded
-graph step reduced residual sequence errors in two DRB1 donors. A complete paired evaluation
-of DōgoHLA and its graph ablation will quantify the contribution of that step on additional donors.
+The component controls identify how the method produced these gains. With panel-assisted read
+collection held fixed, phasing repair and updated phase references increased exact whole-gene
+matches. The guarded graph step then reduced residual sequence errors in two DRB1 donors while
+preserving coding variation and allele names. DōgoHLA combines these operations in a pangenome-based
+inference workflow, using SpecHLA components for read alignment, small-variant calling and
+initial reconstruction. A complete paired evaluation of DōgoHLA and its graph ablation will
+quantify the structural step's contribution on additional donors.
+
+The separate PanGenie and Locityper comparisons assess the reference resource. The strongest
+evidence for the full panel came from recovery of SV-bearing assembly genotypes after
+callable-site repair. Added haplotypes contribute useful evidence when the panel representation
+preserves the sites at which they differ. The smaller and less certain named-HLA gains also
+show why variant recovery, allele designation and whole-gene reconstruction require distinct
+endpoints. These comparisons connect the design of the population reference to the different
+inference tasks that use it.
 
 The 40-donor panel comparison is conditional on a graph built with the test assemblies. The
 full panel is also larger than HPRC-only, so its observed effect combines panel size and
@@ -447,26 +472,35 @@ and the developers of the annotation, graph and typing tools used in this work.
 
 ## Analysis provenance and reproduction
 
-The companion repository (<https://github.com/leechuck/pangenome-bh26>) contains the extraction
-and annotation workflow (`hla/`), graph construction instructions
-(`hla/docs/MHC_GRAPH_README.md`), graph-consensus comparison scripts and tables
-(`hla/analysis/gc_*.py`, `hla/results/tables/gc_*.tsv`), and assembly annotation audit
-(`hla-analysis/FINAL_REPORT.md`, `hla-analysis/REPRODUCIBILITY.md`).
-In the working analysis repository, the completed 40-donor comparisons are documented in `hla-asian50/refined/REPORT.md` and
-`hla-asian50/refined/README.md`; the original analysis is retained in
-`hla-asian50/accuracy/REPORT.md`. Structural protocols, measurements and calibration are in
-`hla-structural/` and `hla-targeted/`.
+DōgoHLA v0.1.0 and AsianPGR v0.1.0 are available from the BioHackathon project repository
+(<https://github.com/biohackathon-japan/BH26-asian-hla>) and its versioned release
+(<https://github.com/biohackathon-japan/BH26-asian-hla/releases/tag/v0.1.0>). The release provides
+DōgoHLA source and development evidence. The AsianPGR graph and mapping indexes and the
+frozen analysis archive are hosted at <https://bio2vec.net/data/asianpgr/v0.1.0/>, alongside
+the JaSaPaGe data, and linked from the GitHub release. Machine-readable checksums identify the
+individual files and release archives. The software release preserves the prepared-environment
+implementation used in the experiments; its README specifies dependencies and input preparation.
 
-DōgoHLA development results and frozen code snapshots are documented in
-`hla-spechla-pg/RESULTS-2026-09-18.md` and `hla-spechla-pg/IMPLEMENTATION.md`.
-The prospective extension is specified in `hla-spechla-pg/validation/20260918/PROTOCOL.md`.
+The AsianPGR archive contains clipped and full GBZ graphs, Giraffe short-read indexes, graph
+variants, contig-name mappings, input sizes and the original build command. The source manifest
+links these files to the 15 September 2026 graph build. The graph archive preserves original
+filenames for compatibility with the analysis scripts.
+
+The analysis archive retains the original directory layout. Extraction and annotation are in
+`hla/`; graph construction is documented in `hla/docs/MHC_GRAPH_README.md`; the initial
+consensus comparison uses `hla/analysis/gc_*.py` and `hla/results/tables/gc_*.tsv`.
+The assembly annotation audit is in `hla-analysis/FINAL_REPORT.md` and its reproduction guide.
+The completed 40-donor comparison is in `hla-asian50/refined/REPORT.md`; the original comparison
+is retained in `hla-asian50/accuracy/REPORT.md`. Structural protocols and measurements are in
+`hla-structural/` and `hla-targeted/`. DōgoHLA source, development controls and the prospective
+protocol are in `workflow/hla-spechla-pg/` in the repository and source archive.
+
 The analysis directories retain donor manifests, exclusions, parameter settings, per-donor
-scores and machine-readable input/output checksums. Large sequence inputs and native outputs
-require restoration from the locations described in those instructions. The results in this
-report use completed analyses available at the 18 September 2026 cutoff; interim results from
-the ongoing DōgoHLA extension are excluded from the reported comparisons. Public deposit of
-the refined 40-donor report and DōgoHLA artifacts was pending at the availability check for
-this draft; their paths above identify local working artifacts.
+scores and input/output checksums. External allele databases, raw reads and large source
+assemblies are obtained from their original providers using the provenance and preparation
+instructions. Results in this report use the completed analyses available at the 18 September
+2026 cutoff. The release retains the frozen eight-donor DōgoHLA development results and the
+protocol for its subsequent evaluation.
 
 ```{=latex}
 }

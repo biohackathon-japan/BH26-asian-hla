@@ -1,0 +1,4 @@
+# Preserve frozen code, test fixtures and result-table bytes.
+workflow/** -text
+workflow/**/*.tsv whitespace=cr-at-eol
+workflow/hla-spechla-pg/review-2026-09-18/** -whitespace

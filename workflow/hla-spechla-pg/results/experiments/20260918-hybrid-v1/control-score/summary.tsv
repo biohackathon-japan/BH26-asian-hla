@@ -1,0 +1,10 @@
+arm	gene	gene_pairs	global_edits	exact_genes	truth_bases	reconstructed_bases	masked_bases	legacy_infix_edits	two_field_eligible	two_field_correct	g_group_eligible	g_group_correct	three_field_eligible	three_field_correct
+A-pairing	A	3	0	6	21045	21045	0	0	3	3	3	3	3	3
+A-pairing	ALL	24	10909	22	344007	350475	2894	4952	24	24	24	23	23	23
+A-pairing	B	3	13	4	24520	24509	0	13	3	3	3	3	3	3
+A-pairing	C	3	21	5	25799	25820	0	0	3	3	3	3	3	3
+A-pairing	DPA1	3	4514	0	54338	58818	144	150	3	3	3	3	3	3
+A-pairing	DPB1	3	278	1	68916	68915	276	278	3	3	3	3	3	3
+A-pairing	DQA1	3	0	6	38910	38910	0	0	3	3	3	3	3	3
+A-pairing	DQB1	3	2517	0	42632	44984	2474	2517	3	3	3	3	3	3
+A-pairing	DRB1	3	3566	0	67847	67474	0	1994	3	3	3	2	2	2

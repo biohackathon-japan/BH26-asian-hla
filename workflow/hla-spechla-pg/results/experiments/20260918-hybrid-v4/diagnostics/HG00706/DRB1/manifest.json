@@ -1,0 +1,28 @@
+{
+  "configuration": {
+    "donor": "HG00706",
+    "driver_sha256": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+    "fold": 0,
+    "gene": "DRB1",
+    "inputs": {
+      "/home/leechuck/hla/mm/envs/asian50-spechla/share/spechla/db/HLA/HLA_DRB1/HLA_DRB1.fa": "71d3d2baa080c2a16531881c2cd904dc15aa2ea09323941ff013bb72120abb40",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.in.fa": "899de4a0479844b16989155873350baea528a6ce2b9b64d36523a63935110d6d",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.pggb.dist": "e2ba00878ff6c3599a037f4464112e824cf95acdeb5a3d0ae51836568c9197d7",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.pggb.giraffe.gbz": "c1be349ced393cc3d0e6858c5d9020a9d1ed60c70965ba21d42191ac13b15d29",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.pggb.min": "5f94340cee6b8b757131d708e685caffcfee6196215b67f2f2254bac62f5b3bb",
+      "/home/leechuck/hla/spechla-pg/graphs/fold0/HLA_DRB1.pggb.zipcodes": "9aeabd52075f5772cb6f978f25e731770dee0b8b525a28c87a7f6b4ae51d0bdf",
+      "/home/leechuck/hla/spechla-pg/runs/HG00706/A/HG00706.realign.sort.bam": "64d10ba9e7cfa096793eb84372e5a5527dcce99ac933b5c9b053f76c2ff9fd8d",
+      "/home/leechuck/hla/spechla-pg/runs/HG00706/bin/DRB1.R1.fq.gz": "1309e90677c2fca7f1aa327848b133d5c8cef67ce490fc3a670ca65b8b1f7012",
+      "/home/leechuck/hla/spechla-pg/runs/HG00706/bin/DRB1.R2.fq.gz": "8d46c342c698442fe6cd481c1ab7a5d5738a5a3af573d07e5ee3e396c43cc518",
+      "/home/leechuck/hla/spechla-pg/source/excluded_paths.tsv": "7ed82c4279ce01bbf4dee71d559c9452081f55bae31684305965c9423b7ebc89",
+      "/home/leechuck/hla/spechla-pg/source/validation_groups.tsv": "b268a06f519aee2f18ce6c04e1c91fb4bd3da62e42bb73e713e90018c46321f0"
+    },
+    "kind": "pggb",
+    "pairs": 1000000,
+    "threads": 4,
+    "timeout_seconds": 300
+  },
+  "finished": 1789703506.8335464,
+  "started": 1789703500.6102343,
+  "status": "complete"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "DogoHLA",
+  "version": "0.1.0",
+  "cohort_sha256": "8dfe24f4ef2a988a23b4b9f63efc5bd433ca2a6c2aa08954fbd2dafe78c4e950",
+  "method_files": {
+    "phase_linkage.py": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+    "experiment.py": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+    "structural_overlay.py": "8385e47c3b5c99f6b9960d604b51c29598935d03ffdcb4a9ceb1d4d3fc23c35e",
+    "graph_diagnostic.py": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+    "spechla_pg.sh": "8afd14b737b137f489b697dad3bcf7eb727b58b8895ab72c3fe290960bdefeb3",
+    "build_refs.py": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+    "build_graph_pggb.sh": "1a05e628aa5a685df35e8cfbed0738a1f690c4c516b6218f5a9934c01ebc6b58"
+  },
+  "phase_arm": "AE-ipd365-pairing",
+  "deadline_utc": "2026-09-18T09:02:07Z"
+}

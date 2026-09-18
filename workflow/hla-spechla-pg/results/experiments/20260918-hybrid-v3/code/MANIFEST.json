@@ -1,0 +1,9 @@
+{
+  "experiment.py": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+  "phase_linkage.py": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+  "build_refs.py": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+  "graph_diagnostic.py": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+  "structural_overlay.py": "6cf0b22ce3e3e67c5c788810126878b83cc46ed10a893d1c91177fe3999984a8",
+  "jobs/phase_experiment.sbatch": "0fc7e303fab370657f5b48e63c945ccc5c81bea2f757cd61375c69d227589ee2",
+  "jobs/hybrid_experiment.sbatch": "68efabf35cdbf9de1564d6efe7b6647db6dff6d33d1d1985a1a3dd1fd370fbf0"
+}

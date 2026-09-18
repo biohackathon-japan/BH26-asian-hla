@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+workflow/hla-analysis/source/imgt/
+workflow/hla-bench/source/imgt/
+workflow/hla-spechla-pg/source/Allelelist.txt
+workflow/nomenclature-downloads.json

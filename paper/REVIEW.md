@@ -90,3 +90,26 @@ Authors, affiliations and the author footer are now empty. The title is
 uses a temporary local copy of the generator with its two-author minimum
 disabled and empty-author layout supported. The repository's upstream CI
 generator still requires authors; fill in authorship before using that build.
+
+## DōgoHLA framing revision
+
+At Robert’s request, the abstract, introduction, method description, results
+and discussion now present DōgoHLA as a new, population-specific, natively
+pangenome-based method. The text explains how panel sequences and locus graphs
+enter inference. SpecHLA component reuse and citation remain explicit in Methods
+and Discussion. Numerical results, comparison cohorts and validation status are
+unchanged. References to the additional-donor “extension” now say “evaluation”
+to distinguish study expansion from method identity.
+
+## Public release
+
+The release home is now `biohackathon-japan/BH26-asian-hla`. DōgoHLA source,
+tests and frozen development evidence are included under `workflow/`; AsianPGR
+graph files and the complete frozen analysis layout are versioned release assets.
+The earlier deposit-status gap is addressed by this release. The manuscript
+availability statement now points exclusively to the BioHackathon repository.
+
+Large release archives are hosted at `https://bio2vec.net/data/asianpgr/v0.1.0/`
+beside the JaSaPaGe data, as requested. GitHub retains the source archive,
+release notes and links. Graph/source checksums preserve the original bytes;
+vendored fixtures retain their original line endings and whitespace.

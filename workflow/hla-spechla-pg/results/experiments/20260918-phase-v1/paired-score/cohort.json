@@ -1,0 +1,19 @@
+{
+  "donors": [
+    "HG00706",
+    "HG02155",
+    "HG03239",
+    "HG03742",
+    "HG03804",
+    "NA18620",
+    "NA19087",
+    "NA21093"
+  ],
+  "arms": [
+    "A-replay",
+    "A-fixed",
+    "AE-ipd365",
+    "AE-panel"
+  ],
+  "complete": true
+}

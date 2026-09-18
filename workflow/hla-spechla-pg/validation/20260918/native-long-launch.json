@@ -1,0 +1,7 @@
+{
+  "job": "20664057",
+  "driver_sha256": "c1771a522fff50b0fa124f302b8a90546f919283bc5c33c8f1bba7815e9e706c",
+  "commit": "34d2523702e8c9406580f95124d77bb592a95872",
+  "smoke_job": "20663769",
+  "root": "/home/leechuck/hla/spechla-pg/validations/dogohla-v0.1.0-20260918"
+}

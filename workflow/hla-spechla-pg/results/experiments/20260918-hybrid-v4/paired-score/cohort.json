@@ -1,0 +1,19 @@
+{
+  "donors": [
+    "HG00706",
+    "HG02155",
+    "HG03239",
+    "HG03742",
+    "HG03804",
+    "NA18620",
+    "NA19087",
+    "NA21093"
+  ],
+  "arms": [
+    "AF-full-DRB1",
+    "AEF-full-DRB1",
+    "AG-homozygous",
+    "AEG-homozygous"
+  ],
+  "complete": true
+}

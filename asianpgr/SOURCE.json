@@ -1,0 +1,89 @@
+{
+  "name": "AsianPGR",
+  "version": "0.1.0",
+  "build_date": "2026-09-15",
+  "source_host": "NIG/DDBJ",
+  "source_directory": "/home/asianhla/data/upload/HLA/mhc_graph",
+  "input_haplotypes": 754,
+  "software": {
+    "cactus": "3.3.0",
+    "vg": "1.76.1"
+  },
+  "original_files": [
+    {
+      "source_name": "MHC.gbz",
+      "release_name": "MHC.gbz",
+      "sha256": "e121aa8b596162918580413038e204443436d8d5301a801df4bc9026405f1a0e"
+    },
+    {
+      "source_name": "MHC.full.gbz",
+      "release_name": "MHC.full.gbz",
+      "sha256": "38a2cf512f7f78bf59b82c47d37e9cf906e499f522edb5ff299a0b3163731f66"
+    },
+    {
+      "source_name": "MHC.dist",
+      "release_name": "MHC.dist",
+      "sha256": "895d409364aa851bcf3a8d5ab831cc2543422b85a62ce548bdadc53c9a36e508"
+    },
+    {
+      "source_name": "MHC.shortread.withzip.min",
+      "release_name": "MHC.shortread.withzip.min",
+      "sha256": "687961eed375e1624f695962588fb7248c05ce189d5e5443a55d812879631f56"
+    },
+    {
+      "source_name": "MHC.shortread.zipcodes",
+      "release_name": "MHC.shortread.zipcodes",
+      "sha256": "bb9c98e81ca092c8319faa6d95fd24281746730fb3ceb7e5ea4ff58cbac7282a"
+    },
+    {
+      "source_name": "MHC.snarls",
+      "release_name": "MHC.snarls",
+      "sha256": "7965602bbf58c0ada57eb2515766130b73fe7508b0b5e362a3abe69b73d69e25"
+    },
+    {
+      "source_name": "MHC.full.snarls",
+      "release_name": "MHC.full.snarls",
+      "sha256": "3df570a04976e3503dc515ec9d67d38e11662c9aa578f4a059a421dd0483dca4"
+    },
+    {
+      "source_name": "MHC.vcf.gz",
+      "release_name": "MHC.vcf.gz",
+      "sha256": "5a07583c803d05f6e94460a555b9b12fedd8705a2acece797ad1d99d46d7ce0f"
+    },
+    {
+      "source_name": "MHC.vcf.gz.tbi",
+      "release_name": "MHC.vcf.gz.tbi",
+      "sha256": "b80ed56979f1f6cca0ac207e32a4483df58bec169d496496bb52effb8c305664"
+    },
+    {
+      "source_name": "MHC.input-contig-sizes.tsv.gz",
+      "release_name": "MHC.input-contig-sizes.tsv.gz",
+      "sha256": "cd6401c7491c71501f7709d3d92dad7c6bf3b8a930725054c27a536aa27fb6f0"
+    },
+    {
+      "source_name": "contig_names.tsv",
+      "release_name": "contig_names.tsv",
+      "sha256": "d73b56bef03c2a1a586293a7e1050531708b53f3e8523d1d147179f8082a1440"
+    },
+    {
+      "source_name": "seqfile.txt",
+      "release_name": "seqfile.txt",
+      "sha256": "7057f648c5689d299026f3d1a8106e31897e3ee944ce8d7910c947c0e70b78b9"
+    },
+    {
+      "source_name": "mhc_mc_graph.sbatch",
+      "release_name": "mhc_mc_graph.sbatch",
+      "sha256": "86be87b364b82849877428f9c390bed01f9dbe4f2953f7936816f09884a1cabd"
+    },
+    {
+      "source_name": "MHC.stats.txt",
+      "release_name": "MHC.stats.txt",
+      "sha256": "a798ad4f86ede0ba50f136baa53ba172a7a0a47c72dadac24f2fdb837a3582a3"
+    },
+    {
+      "source_name": "README.md",
+      "release_name": "BUILD_README.md",
+      "sha256": "396fc3338e439c73edaad9cdb9c953e10cb693e9dc4908f6806aaeec7bb14674"
+    }
+  ]
+}

@@ -1,0 +1,2107 @@
+{
+  "source_commit": "01483dee04b6da61c313bba22f3f7752f3be7686",
+  "method_version": "0.1.0",
+  "snapshot_policy": "Committed files only; live validation outputs and later experiments excluded",
+  "files": [
+    {
+      "path": "hla-spechla-pg/DESIGN.md",
+      "sha256": "47f0af4d8dc36d1d1cea748fec3c8e375626983879ee42db8b5703822f62118c",
+      "bytes": 12797
+    },
+    {
+      "path": "hla-spechla-pg/IMPLEMENTATION.md",
+      "sha256": "121d578faa1b9fd8db6b1c11833e8cd2e8888ab85f986cfca5e5da72fc8ffd8e",
+      "bytes": 6984
+    },
+    {
+      "path": "hla-spechla-pg/LEGACY-WORKFLOW.md",
+      "sha256": "805c26745996c61eeb329592f7077587c0fabf040353e9041728d6c96c7d17a8",
+      "bytes": 3980
+    },
+    {
+      "path": "hla-spechla-pg/README.md",
+      "sha256": "efb67ee7c1abc3a3d1e6c625094062ea6e43415dab4e5f73dfc5b724da31bd99",
+      "bytes": 4288
+    },
+    {
+      "path": "hla-spechla-pg/REPORT.md",
+      "sha256": "fa3c0910177b90ea3ce859146fe3b544bdcd7bfcb2362141f3a71e89b16aa4d0",
+      "bytes": 14736
+    },
+    {
+      "path": "hla-spechla-pg/RESULTS-2026-09-18.md",
+      "sha256": "c2375bbe43aa2a753c6e0e0bd0d4d657d7d9fdee3b1d31adf7485437af7f8d18",
+      "bytes": 10254
+    },
+    {
+      "path": "hla-spechla-pg/VERSION",
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "bytes": 6
+    },
+    {
+      "path": "hla-spechla-pg/build_all_graphs.sh",
+      "sha256": "30b034bd5b301865958074396843ab9ee27048ad889e68851b2e1cec94646561",
+      "bytes": 652
+    },
+    {
+      "path": "hla-spechla-pg/build_exons.py",
+      "sha256": "5236232398d4e0b8f0caa0654f7c57ec40fb0bf1e62f2c8931ade4f865914164",
+      "bytes": 4788
+    },
+    {
+      "path": "hla-spechla-pg/build_graph_mc.sh",
+      "sha256": "a1d06acea17bb2d84e0d1a67f79503d5cf6d78fb4147684875781e5282ef4fa4",
+      "bytes": 2198
+    },
+    {
+      "path": "hla-spechla-pg/build_graph_pggb.sh",
+      "sha256": "cc52c0359857ca9adc50cf4888f3e2c98c6c29d2717eb79ab4500c539e57dfbc",
+      "bytes": 3300
+    },
+    {
+      "path": "hla-spechla-pg/build_refs.py",
+      "sha256": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+      "bytes": 5924
+    },
+    {
+      "path": "hla-spechla-pg/deploy_experiment.py",
+      "sha256": "725a902461cef0d93acb76a20d36c12128c566d9c631530a5899d40d181abe06",
+      "bytes": 2577
+    },
+    {
+      "path": "hla-spechla-pg/designate.py",
+      "sha256": "04675b845a9a77339591503155183ea32bb4b711f2cec47d0aca3ab71963b65a",
+      "bytes": 8804
+    },
+    {
+      "path": "hla-spechla-pg/dogohla.py",
+      "sha256": "1211c401f6bddbb02f31bd7e2f298a9415ee5e3874bc1c1a4e88aa91eac48890",
+      "bytes": 4748
+    },
+    {
+      "path": "hla-spechla-pg/experiment.py",
+      "sha256": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+      "bytes": 16162
+    },
+    {
+      "path": "hla-spechla-pg/fetch_experiment.py",
+      "sha256": "d090376725d3a7fa6ac88e190787d1c1881e5b544445953496f5d55b79d2332d",
+      "bytes": 1746
+    },
+    {
+      "path": "hla-spechla-pg/fetch_runs.sh",
+      "sha256": "53f9374013ad43b39b776a50bb50f425382faf43a70fb2010092fdf9007e2f61",
+      "bytes": 845
+    },
+    {
+      "path": "hla-spechla-pg/fetch_validation.py",
+      "sha256": "10e749b61db39c54234e3b13ff95fd714b321b4940a3e278533ccdcbef82f7bc",
+      "bytes": 1704
+    },
+    {
+      "path": "hla-spechla-pg/graph_compare.py",
+      "sha256": "9f13f70c025a6a4950ce7d787271c8d6228f5d9894b6532e6cbbda734675e4b7",
+      "bytes": 1075
+    },
+    {
+      "path": "hla-spechla-pg/graph_diagnostic.py",
+      "sha256": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+      "bytes": 12393
+    },
+    {
+      "path": "hla-spechla-pg/jobs/build_graph_mc.sbatch",
+      "sha256": "bd19e2c9a7a47d5581d31d81d0369b6dd92714b638cf67ac94bd5687069ed4e3",
+      "bytes": 560
+    },
+    {
+      "path": "hla-spechla-pg/jobs/build_graph_pggb.sbatch",
+      "sha256": "32183269477ce6bf8b4ed0661ac4868990faab79404bf7335963d9a9daa44e9d",
+      "bytes": 568
+    },
+    {
+      "path": "hla-spechla-pg/jobs/build_refs.sbatch",
+      "sha256": "439fd0b304fe9e9c96a0ecdd61f32c92096d150857b3c545bf589620ae04ea6b",
+      "bytes": 584
+    },
+    {
+      "path": "hla-spechla-pg/jobs/hybrid_experiment.sbatch",
+      "sha256": "68efabf35cdbf9de1564d6efe7b6647db6dff6d33d1d1985a1a3dd1fd370fbf0",
+      "bytes": 1483
+    },
+    {
+      "path": "hla-spechla-pg/jobs/phase_experiment.sbatch",
+      "sha256": "0fc7e303fab370657f5b48e63c945ccc5c81bea2f757cd61375c69d227589ee2",
+      "bytes": 741
+    },
+    {
+      "path": "hla-spechla-pg/jobs/recruit.sbatch",
+      "sha256": "f27d13ddd58438588d7e9881d8cdf341873034faf8873b2e87133968c592f284",
+      "bytes": 2690
+    },
+    {
+      "path": "hla-spechla-pg/jobs/redesignate.sbatch",
+      "sha256": "645754f692ae56817e5cef14050ab4f994b532746e6a60e02231aa75fc34f861",
+      "bytes": 1110
+    },
+    {
+      "path": "hla-spechla-pg/jobs/run_donor.sbatch",
+      "sha256": "9665c349b296dae0e85660c6803697d9656fa626a0642f4b6ff3c21c5c371b23",
+      "bytes": 2109
+    },
+    {
+      "path": "hla-spechla-pg/launch_validation.py",
+      "sha256": "e7c98916412f386891c08294057b2c79e10d25cca0f48d4f63f21d95eb13b259",
+      "bytes": 3884
+    },
+    {
+      "path": "hla-spechla-pg/monitor_validation.py",
+      "sha256": "b38fe0e4058a64854f857232765b5b9ac8d05687a00e52148ef5d09d2afed71a",
+      "bytes": 1858
+    },
+    {
+      "path": "hla-spechla-pg/native_long_control.py",
+      "sha256": "c1771a522fff50b0fa124f302b8a90546f919283bc5c33c8f1bba7815e9e706c",
+      "bytes": 4158
+    },
+    {
+      "path": "hla-spechla-pg/phase_linkage.py",
+      "sha256": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+      "bytes": 1238
+    },
+    {
+      "path": "hla-spechla-pg/publish_validation.py",
+      "sha256": "60f1caa878e9bdcbcd39b7e333e5ebd2ed007e0d4cb046ef681b96fc1e4c9179",
+      "bytes": 1560
+    },
+    {
+      "path": "hla-spechla-pg/push.sh",
+      "sha256": "5d9c760ecff614f7aa9590b747b65d8d10dac7f9eb0e22459a3cda64c167ee24",
+      "bytes": 494
+    },
+    {
+      "path": "hla-spechla-pg/remote.py",
+      "sha256": "ec4763998e4ac9cfbbe508fc5a3915740b387d3536a7a197062493194200802e",
+      "bytes": 1006
+    },
+    {
+      "path": "hla-spechla-pg/results/errors.tsv",
+      "sha256": "a5dc1985342660c6ac5fe9a0b6f1544cea5f0c72c3c6b7c58681729b04cfebbf",
+      "bytes": 16022
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/COMPLETE",
+      "sha256": "de2af36644d472214384ae72af1223b05725d54a12b54a044c3a537c81feab93",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/gam.stats.txt",
+      "sha256": "a5cd5235a6180abb3110e07edc9d525fcfe33dcc539ed8517e7ea2061b257a9b",
+      "bytes": 599
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/manifest.json",
+      "sha256": "38ede49474dd69a225162ce7ced8a65c10c35eaa07362302f8ec48fc2db534eb",
+      "bytes": 1901
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/preservation.json",
+      "sha256": "a74a14127a1a97856c983dfac60a4995ab8cba92a2c5097ccb381766d7f48c8e",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/structural_candidates.tsv",
+      "sha256": "9710f2ace5e124a439e77a9a37c10dad98af97d8212fcf31eba85b29eb25dde6",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/summary.json",
+      "sha256": "e8bf303188299ae78d4da9f7f8ea1543324ecebb5b68a049dd4e3eaaf971ea2d",
+      "bytes": 1232
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/A/timing.json",
+      "sha256": "a195ec984458d8a9dc1a5666402e02342ebae2ef541723433a6e2c17c0d4a04d",
+      "bytes": 439
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/COMPLETE",
+      "sha256": "55c7a0d2058f56001dcba5ad507354245a87d860e7c35489b1f844e807c0ba14",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/gam.stats.txt",
+      "sha256": "409c062e828af62ac4621b00bfbe24e8e4af3f3b60f8e324f717759b40541084",
+      "bytes": 628
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/manifest.json",
+      "sha256": "3bc8a4cf7939178a7462ee8cd40c7ade29943aa125662d92926f0989572b6954",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/structural_candidates.tsv",
+      "sha256": "4335136104f4b855843cb9608d95299cdfba82fd2b674a055284f6bfb07ddb0b",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/summary.json",
+      "sha256": "63e3ab53dad2c4bacf211c5c820a34c0498b8a421fdfe665868b8c0f0374b35c",
+      "bytes": 1232
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG00706/DRB1/timing.json",
+      "sha256": "889b1199e6a47bdd615a8eb4218d4bb8e27bc91c9270f48ffe59de7acf387c29",
+      "bytes": 439
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/COMPLETE",
+      "sha256": "4cb3dc5305acaa5493cbc735f80f3d187adb26b2cd97270cd130c18a95b634b9",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/fragment.json",
+      "sha256": "021f939213bccf30c510188037ff931fc4c2ec8d759cf3b988e230a5c9bc0f2b",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/gam.stats.txt",
+      "sha256": "9b2bc94cd13a82442afcf86c2427f751ed3e2c8b22ee85de844f2866630d6e8a",
+      "bytes": 600
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/manifest.json",
+      "sha256": "b51df1abab92eb9ee8b5f9a4229bef4fd1c0c9ffaa3ba01d55fd4e2c8a6f50a5",
+      "bytes": 1902
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/preservation.json",
+      "sha256": "a74a14127a1a97856c983dfac60a4995ab8cba92a2c5097ccb381766d7f48c8e",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/structural_candidates.tsv",
+      "sha256": "9710f2ace5e124a439e77a9a37c10dad98af97d8212fcf31eba85b29eb25dde6",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/summary.json",
+      "sha256": "c33da6bdab1ab8380d6c5839d610f661b36a865734d232a92b48e4e6abd1c993",
+      "bytes": 1228
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/A/timing.json",
+      "sha256": "644b89b357bcab68ec78eae2581b45358475ce641bbee138b8ec5a29625f2f5b",
+      "bytes": 442
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/COMPLETE",
+      "sha256": "ae7d44ab665774c4c94564c44538c2cefba3e06a88a57947b3f3cfe41c3d5e54",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/fragment.json",
+      "sha256": "021f939213bccf30c510188037ff931fc4c2ec8d759cf3b988e230a5c9bc0f2b",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/gam.stats.txt",
+      "sha256": "40aa8bfd1a1707646db295c6309f8056c3d48ce6901dce6078a3f115f2239a4c",
+      "bytes": 611
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/manifest.json",
+      "sha256": "d4d14b0e0a49e610d537f65b5e8f18b875c40077cb12dd49ea8d6f064a0eef05",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/structural_candidates.tsv",
+      "sha256": "fff15f44238ef6ba147b570b7c61916f477679613801a68d1afd4c65c8468731",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/summary.json",
+      "sha256": "b0a4554e89f9502b235c45145395ffab6b9d8fb250b26ae0428bdbc303d1e8ed",
+      "bytes": 1229
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG02155/DRB1/timing.json",
+      "sha256": "2403be64635babf577a5b1e82ba095c51c8d0d57a929824ff206fbbe59d26f7d",
+      "bytes": 436
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/COMPLETE",
+      "sha256": "b00aa01425c6cb7a703434cc6970858fcf881d81ff21f5d61b597f1bc3060e57",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/fragment.json",
+      "sha256": "4545dc7b0c4e0ebd864911c27be5b2aa7c197583beab530c289518b4b91f3001",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/gam.stats.txt",
+      "sha256": "859c5acb1722309cb54f2668e3bf9424817164155346c6d2d297b64250836c36",
+      "bytes": 597
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/manifest.json",
+      "sha256": "74964b79e7db5b44662c89bc22963cab2dad771a50632af49740b1613bf7b138",
+      "bytes": 1901
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/preservation.json",
+      "sha256": "a74a14127a1a97856c983dfac60a4995ab8cba92a2c5097ccb381766d7f48c8e",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/structural_candidates.tsv",
+      "sha256": "9710f2ace5e124a439e77a9a37c10dad98af97d8212fcf31eba85b29eb25dde6",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/summary.json",
+      "sha256": "5c53762d047baf4d872f348ebb80eeb6e7e1ae05d1b25c1d7d5aa4a78f933728",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/A/timing.json",
+      "sha256": "d35e902ec7e3fb1a2c7025e5175dd79b315df1b7c1e2ec16d551a7a3c2563bc2",
+      "bytes": 440
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/COMPLETE",
+      "sha256": "34eb65c5c5bd741b9c6b6c896842aa22ef6f2b4e07019aaeaeb2582bfaee5845",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/fragment.json",
+      "sha256": "4545dc7b0c4e0ebd864911c27be5b2aa7c197583beab530c289518b4b91f3001",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/gam.stats.txt",
+      "sha256": "819c6eba2026cf3016d6afb76395229b00f2ebaaf776c7f4d9c23a5fc1bae349",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/manifest.json",
+      "sha256": "4cebb2f1e9ea3810eeb297c67fdb7fbc4a2aa8909d542b55ae2aa3d991c4501f",
+      "bytes": 1930
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/structural_candidates.tsv",
+      "sha256": "96ed8b7149c0790ac6d707be4f1f62bea1c954512b25b1acb25f87825df3affb",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/summary.json",
+      "sha256": "663d0656107ef4e9b30b5c65b0e6cbd26f80a85a5b1d4a62dbfca312c8c7a6ed",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-graph-v1/diagnostics/HG03804/DRB1/timing.json",
+      "sha256": "ed1791c5d131388be3ab9bc72da041e8e478d51854161068883615ba7ad095e6",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v1/control-score/cohort.json",
+      "sha256": "af3010c21a39000250698c4c5714a7a2afd41c0c4615b4e9502474197434af46",
+      "bytes": 119
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v1/control-score/paired_scores.tsv",
+      "sha256": "811c9ea12e864e644674ad6c76f7a89b7215b3caccee9132aecd126d5c06869e",
+      "bytes": 1570
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v1/control-score/summary.tsv",
+      "sha256": "6bd7a3b0a760f8bba951ec361014f0736ed711a42836e22db71026f84086776e",
+      "bytes": 712
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v1/paired-score/cohort.json",
+      "sha256": "4ccf9b8f946301cddcfc47d9295b466f27fbf3aaf05eee1df946e8f9ea7f0325",
+      "bytes": 123
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v1/paired-score/paired_scores.tsv",
+      "sha256": "510426617a03fab5879432cee79e58f7fccab9b6313ca4d775f538c1957b039d",
+      "bytes": 1663
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v1/paired-score/summary.tsv",
+      "sha256": "d95d7435102b0d22fbe5e01e5c7acd2b34bb5b82f5b1b3f421f011b7bfbe67c3",
+      "bytes": 746
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/code/build_refs.py",
+      "sha256": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+      "bytes": 5924
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/code/experiment.py",
+      "sha256": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+      "bytes": 16162
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/code/graph_diagnostic.py",
+      "sha256": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+      "bytes": 12393
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/code/jobs/hybrid_experiment.sbatch",
+      "sha256": "f8b2952e2ae958cf8455a1bf5b21baba4f358c68dbe2349c9f29115cc93684d4",
+      "bytes": 1193
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/code/phase_linkage.py",
+      "sha256": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+      "bytes": 1238
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/code/structural_overlay.py",
+      "sha256": "8e10d029f27d39672c07a7fc966a130fb777027d274dc4ef4f5277c15974b023",
+      "bytes": 8854
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/COMPLETE",
+      "sha256": "958a5ae772570726cf7945d86249e86eda0f7eff5f1bc05825705bc6476a023e",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/gam.stats.txt",
+      "sha256": "6c4400f98a39ab198f5260338739c1684e279245dc71edd163c1a7a33fd523bf",
+      "bytes": 627
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/manifest.json",
+      "sha256": "fec2a113ff988cf053fca9539dd29db82c7957f379a54e7dac0ce13cfb9b9617",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/structural_candidates.tsv",
+      "sha256": "4335136104f4b855843cb9608d95299cdfba82fd2b674a055284f6bfb07ddb0b",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/summary.json",
+      "sha256": "922c3eb896b94acda3e9b1a28c4778d97fcdd8c74d894bb320e129bcee10fea8",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG00706/DRB1/timing.json",
+      "sha256": "815d074bd25a03b68d0e78ee31aadd644180825c621bc2a77d54b78924382a22",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/COMPLETE",
+      "sha256": "254cf66ef406507419152667c42db99a0493d4cbd9b2a5f9b472e456c0a44444",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/fragment.json",
+      "sha256": "021f939213bccf30c510188037ff931fc4c2ec8d759cf3b988e230a5c9bc0f2b",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/gam.stats.txt",
+      "sha256": "1c4f2da123a7d3a63fe060ab0dd3f3ed2c04c9cdb5131552d13bcf5838720f38",
+      "bytes": 611
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/manifest.json",
+      "sha256": "0b0f8b3d7e8ce7c5e25e33e2384b467051d48d8b7959429a05636e8eaef1d30b",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/structural_candidates.tsv",
+      "sha256": "fff15f44238ef6ba147b570b7c61916f477679613801a68d1afd4c65c8468731",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/summary.json",
+      "sha256": "bedb887f9dae2fee3153bbbef279f0fa3aa148608ebfe45c1226aab525156261",
+      "bytes": 1231
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG02155/DRB1/timing.json",
+      "sha256": "4044765b46f860eabe2fb2fbd9a4360890ff4a834badbbd78ebeec41bf311f53",
+      "bytes": 438
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/COMPLETE",
+      "sha256": "8659e0fb7b2ba4fb60b3acf94c311922c1702f546b319bb48033dce928dbe46a",
+      "bytes": 689
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/fragment.json",
+      "sha256": "15ed217810e290f806914ed44b4af749e259c09169b2f9892ff989da074c6ab4",
+      "bytes": 78
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/gam.stats.txt",
+      "sha256": "569a5f8e5ad2ee14bbe4dd326cdf42177e0f8930cb97abe04d17f61aa74fdc1f",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/manifest.json",
+      "sha256": "8878a87bb7591cac5dd4746d10a7b57e041e8497ff447afdfca89a85f78a1343",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/structural_candidates.tsv",
+      "sha256": "5fa9989f355e7d3ef720b7bd81dfc573a84923c619dde82a189b50bf1b28b9ef",
+      "bytes": 21380
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/summary.json",
+      "sha256": "dcfaa4f5af30a95c6c1fcd303069427018d804cbb3dd93a74fdde636568c9cd8",
+      "bytes": 1223
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03239/DRB1/timing.json",
+      "sha256": "6184558999329765458a7bbafc2ff6337c18833d2b37e60630dcdcf639ae0184",
+      "bytes": 435
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/COMPLETE",
+      "sha256": "ffaf967b924b69a47011b7bdc86f473004f11cc848e2749eaef4521e908c6158",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/fragment.json",
+      "sha256": "8ecddb2d85d1ccce2a9234375f1ea59ff7a5fa5e47ea5fb782b2975b05539d57",
+      "bytes": 78
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/gam.stats.txt",
+      "sha256": "5c0b0e4f77b1f4f6ac09cbe6f866ac364335c761afc35fccd3b717843438b364",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/manifest.json",
+      "sha256": "de3e591662af81f482638c15fcc917a692f7a42c9d75526afb7ff486e0ca55f0",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/structural_candidates.tsv",
+      "sha256": "2fe595d384d7c2ede58a6d6bae912834a0f4b4ad8b5ed025159ace97cac7cd16",
+      "bytes": 20555
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/summary.json",
+      "sha256": "ca8c6f1281835145d2ebfb5df5f44bed5d1f82c007028a5005d8828baff173a5",
+      "bytes": 1229
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03742/DRB1/timing.json",
+      "sha256": "fbd8f992937dca73b69e362e73e9abbbae3ac276710c7073797b3e475036b83c",
+      "bytes": 436
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/COMPLETE",
+      "sha256": "05ce0559d7047073ba2f6c3bf9565e00400bd0473dbd5944314fb607593fe4b7",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/fragment.json",
+      "sha256": "4545dc7b0c4e0ebd864911c27be5b2aa7c197583beab530c289518b4b91f3001",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/gam.stats.txt",
+      "sha256": "0dc4d051cae8f652d8dd51b694f22158063d5a652f2ca8413f6f9c9296fbef04",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/manifest.json",
+      "sha256": "225d465d3e7773dafba3879b192761af2109fee9f2a4d470904446b634858dc8",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/structural_candidates.tsv",
+      "sha256": "96ed8b7149c0790ac6d707be4f1f62bea1c954512b25b1acb25f87825df3affb",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/summary.json",
+      "sha256": "9efa0a77c4b67a074ad0bff063bede58746c043f0df5c3f6e912cc3a137ec41b",
+      "bytes": 1232
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/HG03804/DRB1/timing.json",
+      "sha256": "18f549c8e3676df30c7de52b34b79084714d06787646768aabe4beedc0935d28",
+      "bytes": 439
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/COMPLETE",
+      "sha256": "795628121b38d531f1336c78e97c8523e54e221b4a64e27ddf18d947e6db841c",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/fragment.json",
+      "sha256": "31ce278cb868f03f0186518cbf0dd2ee8c8bd6a063a681fed036e55d0d8675a3",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/gam.stats.txt",
+      "sha256": "2d1b981de8b4322340eb5e4d612525231caee45b2435eaf4de4a06824fbb92ab",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/manifest.json",
+      "sha256": "7dd50b15bc9aed6b645052b44f19f6c1c685214b261204586fb5a6a203104e62",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/structural_candidates.tsv",
+      "sha256": "9710f2ace5e124a439e77a9a37c10dad98af97d8212fcf31eba85b29eb25dde6",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/summary.json",
+      "sha256": "f977f36539f9df45692f62da2c53856f5e2ea94b6bc29f9ce583964fd525cb39",
+      "bytes": 1232
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA18620/DRB1/timing.json",
+      "sha256": "93f4f2cb508e43b8abeecd175f797e8a26a7c4ef5b6309c1fe97d451af8ef30b",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/COMPLETE",
+      "sha256": "9fada7aa9b0bb6596657d817f553cc6ad6d286ea9636b4ddb6effcbb89adfb8f",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/fragment.json",
+      "sha256": "9109c920925b91e6809e1505e47811e561adea0bbfafec50311cecdb28696f28",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/gam.stats.txt",
+      "sha256": "aff437236bff6604f4ee0cafad72d0ec5770b598073a00aaa3356c0be3c5816f",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/manifest.json",
+      "sha256": "7d155c61e508662cfc1f894594376372d0497ab931e62352607d06cae72c8218",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/structural_candidates.tsv",
+      "sha256": "31c723435e49ca8a62278ba56e6928be1f34c016a1369aaa5de3076f6e22c652",
+      "bytes": 20554
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/summary.json",
+      "sha256": "58130bbdd1fffd47bf7824761f49d007ec221b4508167c9a7f66368e169fc9e2",
+      "bytes": 1226
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA19087/DRB1/timing.json",
+      "sha256": "b82de9b10ad2c25831214f1c518b007466cd89f110c26bac619353d3719d30df",
+      "bytes": 433
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/COMPLETE",
+      "sha256": "202ec03d8826efdea4508271e1d26e055d7b6b41bdc31fdddc2439fd3fab51b3",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/fragment.json",
+      "sha256": "f9072c1c7201f561130697364ee680a12c0c126b866c7efd9ce87e53263e8cfc",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/gam.stats.txt",
+      "sha256": "37fb367e845f928e5026bd061bddad8a19922b4e3270bb527ca7b6336ccfd269",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/manifest.json",
+      "sha256": "2181ec9bc071bb396793056f7d97705885cb3b4255a9a80ef90d5a818fb52f4d",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/structural_candidates.tsv",
+      "sha256": "4785ae251dee235aca2cb9b86ba92d150aa6d4c0d514567492edebb1af788169",
+      "bytes": 21460
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/summary.json",
+      "sha256": "a6df6d08d62cf8e36e0e2df16e7974065ec3b9a4715997da8c739fd2cccd4a92",
+      "bytes": 1231
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/diagnostics/NA21093/DRB1/timing.json",
+      "sha256": "cb887221dfb81d38ba8479b96a63282b1da3369ce4c04f8267d7debcb246a783",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/paired-score/cohort.json",
+      "sha256": "173b393e5cd525a825b656633a370c926b3bbe9df3ac709781277ad968f1ccb8",
+      "bytes": 220
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/paired-score/paired_scores.tsv",
+      "sha256": "1c8990dccd8afbf2b7494cce9fb48a7052968197388172ea291409f10de871eb",
+      "bytes": 8066
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v2/paired-score/summary.tsv",
+      "sha256": "95ba5a39563a48e96a614c544eb35f0ba575e99712fd3af99fd5cb47ae0f8408",
+      "bytes": 1350
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/MANIFEST.json",
+      "sha256": "3d52b3aae8fe328a87448900ef99ef935bdd51b7e3a3bbe95c074db4b9b2cd7c",
+      "bytes": 660
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/build_refs.py",
+      "sha256": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+      "bytes": 5924
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/experiment.py",
+      "sha256": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+      "bytes": 16162
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/graph_diagnostic.py",
+      "sha256": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+      "bytes": 12393
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/jobs/hybrid_experiment.sbatch",
+      "sha256": "68efabf35cdbf9de1564d6efe7b6647db6dff6d33d1d1985a1a3dd1fd370fbf0",
+      "bytes": 1483
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/jobs/phase_experiment.sbatch",
+      "sha256": "0fc7e303fab370657f5b48e63c945ccc5c81bea2f757cd61375c69d227589ee2",
+      "bytes": 741
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/phase_linkage.py",
+      "sha256": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+      "bytes": 1238
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/code/structural_overlay.py",
+      "sha256": "6cf0b22ce3e3e67c5c788810126878b83cc46ed10a893d1c91177fe3999984a8",
+      "bytes": 11123
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/COMPLETE",
+      "sha256": "6da87405292ac751b5e1081ce0c4675ffbf8fdf97b5e10f6261135b3eed534b1",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/gam.stats.txt",
+      "sha256": "23c04c769413d32743e0332a71c376da61694df954b04b763d6c3228fcc58ebf",
+      "bytes": 627
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/manifest.json",
+      "sha256": "7e999499783d31e9515b954a925cd3860865becaac75d9f63e19540e6d68fc48",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/structural_candidates.tsv",
+      "sha256": "4335136104f4b855843cb9608d95299cdfba82fd2b674a055284f6bfb07ddb0b",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/summary.json",
+      "sha256": "ac62e18da7785cf9c260de0af29981136fd1900e55cbdafe3fcc0c6db722f791",
+      "bytes": 1229
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG00706/DRB1/timing.json",
+      "sha256": "3c27a488d8dd5d36768c8db73caef533c5feaa8b176a3ecb9e0e02b0ee3142b8",
+      "bytes": 436
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/COMPLETE",
+      "sha256": "8ef825870972f014b6600594a210851703f37440b66b7d4c88884837b832fcef",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/fragment.json",
+      "sha256": "021f939213bccf30c510188037ff931fc4c2ec8d759cf3b988e230a5c9bc0f2b",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/gam.stats.txt",
+      "sha256": "3618fbfe7f16f3d20334ec4f108ad6a1fc3fb61b2d8e7157f6e606e6c3081006",
+      "bytes": 611
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/manifest.json",
+      "sha256": "53e8382af1df9a2348fa1b7620b03b2ba494ac00669bf374945be83bf1c8559e",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/structural_candidates.tsv",
+      "sha256": "fff15f44238ef6ba147b570b7c61916f477679613801a68d1afd4c65c8468731",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/summary.json",
+      "sha256": "0af1d428e283ebaa3e9d033112736e79336457fba42c58f9c6a57f23586a499e",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG02155/DRB1/timing.json",
+      "sha256": "3e0633b7beb9f5db8624fe4401e984f7e432e33ca0037fda19fcb26d549bde5b",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/COMPLETE",
+      "sha256": "afdb5d299d9656bc85a433f6e90ea75dc9afd4e92ddd28c235ee891d04490730",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/fragment.json",
+      "sha256": "15ed217810e290f806914ed44b4af749e259c09169b2f9892ff989da074c6ab4",
+      "bytes": 78
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/gam.stats.txt",
+      "sha256": "81a617616b15da9a0e62ee1d76e998cf30f91a8634aef2293663d71f41e122ad",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/manifest.json",
+      "sha256": "344a79bf985b7d31461297b722df8e3160842bda5185f28987990941998edd8b",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/structural_candidates.tsv",
+      "sha256": "5fa9989f355e7d3ef720b7bd81dfc573a84923c619dde82a189b50bf1b28b9ef",
+      "bytes": 21380
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/summary.json",
+      "sha256": "3e05f6bc90a7ac2317abeca1cf3e869054f70801970f42f162819ed43d0a9bfd",
+      "bytes": 1226
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03239/DRB1/timing.json",
+      "sha256": "fe6135866ef4ad1cf591bd0272006fd1993d63486e908eb311587b58f0a51199",
+      "bytes": 438
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/COMPLETE",
+      "sha256": "0746980664949d5abdb692978dba30b4a677c755e039f3946d8815a0aec13821",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/fragment.json",
+      "sha256": "8ecddb2d85d1ccce2a9234375f1ea59ff7a5fa5e47ea5fb782b2975b05539d57",
+      "bytes": 78
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/gam.stats.txt",
+      "sha256": "e7ef0b2043ed11ebfd0a33ff2f8f235f3580b2c2f226faa27b1d60402f17bafe",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/manifest.json",
+      "sha256": "eadc7a5f1f672de650215dad843da2989c9b9a6a9afff9d09ee7b2f275a03600",
+      "bytes": 1930
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/structural_candidates.tsv",
+      "sha256": "2fe595d384d7c2ede58a6d6bae912834a0f4b4ad8b5ed025159ace97cac7cd16",
+      "bytes": 20555
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/summary.json",
+      "sha256": "5ff12fe08b5efcc6ae31616e80d9ac1452cf09749af5c75800455f5f348180ca",
+      "bytes": 1226
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03742/DRB1/timing.json",
+      "sha256": "475e175424766817587ee59b32bc64ebea895b6b4bc2340f8f3162dc9e4987fb",
+      "bytes": 433
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/COMPLETE",
+      "sha256": "7a58d02053b746bf2ce99ab7672774fe2c8b3a45171706e9e6b9c24bee3cf242",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/fragment.json",
+      "sha256": "4545dc7b0c4e0ebd864911c27be5b2aa7c197583beab530c289518b4b91f3001",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/gam.stats.txt",
+      "sha256": "cb224c61baa8a9b515a5c8877e5e40a32d96fcb7efa2143e65dbd0be757d10ae",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/manifest.json",
+      "sha256": "19acaa93c39ca1c646ae99879ee761df2b98d5645de4062e99c89386d1966265",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/structural_candidates.tsv",
+      "sha256": "96ed8b7149c0790ac6d707be4f1f62bea1c954512b25b1acb25f87825df3affb",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/summary.json",
+      "sha256": "51e7201868fae2d68cfc846532e8b740c8a34b036aa7287436a9c282e159ba4d",
+      "bytes": 1231
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/HG03804/DRB1/timing.json",
+      "sha256": "c7fb760be16d30ebf955cfc715bfb3766e3b8369b9bb80813d1d504830719f07",
+      "bytes": 438
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/COMPLETE",
+      "sha256": "9179538950205b255634fe3e827a7e87a8cea38fe90b58b0596b0f0315cc6f87",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/fragment.json",
+      "sha256": "31ce278cb868f03f0186518cbf0dd2ee8c8bd6a063a681fed036e55d0d8675a3",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/gam.stats.txt",
+      "sha256": "e4b10e81fd5fa0cac447443fd584db95dbf297175f2b9737731303b6b3db68e9",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/manifest.json",
+      "sha256": "33b92e592306a12a4f8c5c967d618d2abd3a7c383f00d87fe7731c9f7ff31131",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/structural_candidates.tsv",
+      "sha256": "9710f2ace5e124a439e77a9a37c10dad98af97d8212fcf31eba85b29eb25dde6",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/summary.json",
+      "sha256": "cc761a7831ad4fdf5f7a3d036f5762307dfe9fc72c70cd22c041d3079dbf07fd",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA18620/DRB1/timing.json",
+      "sha256": "30241bee47eec2c5373fa50135c916139f95774aa55ec4d7e3d5f6691b2e4808",
+      "bytes": 435
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/COMPLETE",
+      "sha256": "bca906ce76febe2b074d73a3c4092d9a5a0be4beb401534b017943443c4333cd",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/fragment.json",
+      "sha256": "9109c920925b91e6809e1505e47811e561adea0bbfafec50311cecdb28696f28",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/gam.stats.txt",
+      "sha256": "6ecf209028e78f389e9b7b0bc4308218c5fe53123e5bd40231a74b555b3c3c0e",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/manifest.json",
+      "sha256": "03b3735c82570cb53a476f142ff616873e5287113423c94aa0a0cdc1c0715ad7",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/structural_candidates.tsv",
+      "sha256": "31c723435e49ca8a62278ba56e6928be1f34c016a1369aaa5de3076f6e22c652",
+      "bytes": 20554
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/summary.json",
+      "sha256": "67f7a1936f0937fededea22d03a746ed43e2675602c65a12ab5c5e5cbfd25620",
+      "bytes": 1227
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA19087/DRB1/timing.json",
+      "sha256": "fe97e057c568b959d3b0a666cb1b030e786b9c33d40ffe6c98618b9a74bcf36e",
+      "bytes": 434
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/COMPLETE",
+      "sha256": "30d4aa248325640c5b098f8f6fc946bb80d68fcd66c8dbf6a595d54bfcc34e3b",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/fragment.json",
+      "sha256": "f9072c1c7201f561130697364ee680a12c0c126b866c7efd9ce87e53263e8cfc",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/gam.stats.txt",
+      "sha256": "1f8a10ca2d1335c5ba96b431c0bd28fc1a7b0e48c2dca3ebd3aae590876cfb14",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/manifest.json",
+      "sha256": "760df9df2fd0749274f62408af8424afe13e2d7616535ee5fb93f8ac874b22dd",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/structural_candidates.tsv",
+      "sha256": "4785ae251dee235aca2cb9b86ba92d150aa6d4c0d514567492edebb1af788169",
+      "bytes": 21460
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/summary.json",
+      "sha256": "5825e951edff1fbab0ac173925542ad9c678a1724dd00f564431e08459c31bed",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/diagnostics/NA21093/DRB1/timing.json",
+      "sha256": "2dd28f264904769b8ce8c2bc245491082e50259df87fbd562b2604f04fa5ca27",
+      "bytes": 436
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/paired-score/cohort.json",
+      "sha256": "185c9a705073d0ab2a071b064aebd7b78eb0e94c8637a78cf1c10ddcca3f63c2",
+      "bytes": 261
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/paired-score/paired_scores.tsv",
+      "sha256": "652be41a410114c86ed27159ac17969eb1364d54fb3d75f8ad3f9b60f04062ff",
+      "bytes": 15816
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v3/paired-score/summary.tsv",
+      "sha256": "db18eaf97cd4f7a438c0ef89216ca646b29b80e743defbaab57e84cbd9cf8ccc",
+      "bytes": 2461
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/MANIFEST.json",
+      "sha256": "0cb5473ae4338a40d303892a7fea49f362cfd7918f38fd3be8430fc441937144",
+      "bytes": 660
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/build_refs.py",
+      "sha256": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+      "bytes": 5924
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/experiment.py",
+      "sha256": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+      "bytes": 16162
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/graph_diagnostic.py",
+      "sha256": "efd51a1bc95113c226d1756d3a33d77f1dd7430c90efb691a21fab4f655591df",
+      "bytes": 12393
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/jobs/hybrid_experiment.sbatch",
+      "sha256": "68efabf35cdbf9de1564d6efe7b6647db6dff6d33d1d1985a1a3dd1fd370fbf0",
+      "bytes": 1483
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/jobs/phase_experiment.sbatch",
+      "sha256": "0fc7e303fab370657f5b48e63c945ccc5c81bea2f757cd61375c69d227589ee2",
+      "bytes": 741
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/phase_linkage.py",
+      "sha256": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+      "bytes": 1238
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/code/structural_overlay.py",
+      "sha256": "8a4713bb0b42fe8729423e3dcd149bca56ae86f56d998a6ee60e016b91300201",
+      "bytes": 11533
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/COMPLETE",
+      "sha256": "c2d932ea91f9c0426e1665a1f606d18eb00940bcd5d10955b1299531cc478f84",
+      "bytes": 690
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/gam.stats.txt",
+      "sha256": "d1bdb7320f5cb193ef80580b95df8f13e40b97ca5a6ab1332eb5c150773ef3f0",
+      "bytes": 628
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/manifest.json",
+      "sha256": "2b4498baa2c64ab15c491f7950bfb2f88353f4d742bea11443a5c053a9f13f48",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/structural_candidates.tsv",
+      "sha256": "4335136104f4b855843cb9608d95299cdfba82fd2b674a055284f6bfb07ddb0b",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/summary.json",
+      "sha256": "c05d0be9419fee9578d30a6e996411a3c8d33c57cd816b84ef1305e9b64176f6",
+      "bytes": 1228
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG00706/DRB1/timing.json",
+      "sha256": "46b025ccbf6062b5eee9f20eefd17a2b65a9915090f49105d257792f003923db",
+      "bytes": 435
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/COMPLETE",
+      "sha256": "e6b086b864b0dab5a9f338ee03a565002c297c9226d59e506883710227a5bb32",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/fragment.json",
+      "sha256": "021f939213bccf30c510188037ff931fc4c2ec8d759cf3b988e230a5c9bc0f2b",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/gam.stats.txt",
+      "sha256": "4f06693ba128ab69bd5153773aafc814a6ae5eb2a244fb200262e4328544de89",
+      "bytes": 611
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/manifest.json",
+      "sha256": "455d879d43561f71c19b80f60ad78b9f7f608f1d532fcd906473cba619032bc0",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/structural_candidates.tsv",
+      "sha256": "fff15f44238ef6ba147b570b7c61916f477679613801a68d1afd4c65c8468731",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/summary.json",
+      "sha256": "3d98df944f804b0cc52c0e142640e8555046d4d9fbf07de8c90c0ecc8038b69d",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG02155/DRB1/timing.json",
+      "sha256": "57f893b97d715886607928e92375149b0fa208c677397496903b1d0932e28d8e",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/COMPLETE",
+      "sha256": "92bbacd1b3d397ae2872a629f684fbf8d378dc64063f67b57dec307d92dccffe",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/fragment.json",
+      "sha256": "15ed217810e290f806914ed44b4af749e259c09169b2f9892ff989da074c6ab4",
+      "bytes": 78
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/gam.stats.txt",
+      "sha256": "836f76e68b85a92842085b0ad7fe4ffc3d2b839ce847ac201faa6a32783c608f",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/manifest.json",
+      "sha256": "97a40b41f28cf5def5f1e214d59d583998a941205bf0ac3a30de64a7e7dae977",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/structural_candidates.tsv",
+      "sha256": "5fa9989f355e7d3ef720b7bd81dfc573a84923c619dde82a189b50bf1b28b9ef",
+      "bytes": 21380
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/summary.json",
+      "sha256": "dd6077061d2c13962823aedd733e6ad0e570470b7d9fa37ec1201967b5afe20f",
+      "bytes": 1225
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03239/DRB1/timing.json",
+      "sha256": "9ed70e323c2ff0f3af5697b017c817c0ebb0037439314689abc08a8a2c487d1b",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/COMPLETE",
+      "sha256": "89aa8fcaa9d1ed3cb406275c6eec87fb870d71351e0ea14b54bafd787a37bf8b",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/fragment.json",
+      "sha256": "8ecddb2d85d1ccce2a9234375f1ea59ff7a5fa5e47ea5fb782b2975b05539d57",
+      "bytes": 78
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/gam.stats.txt",
+      "sha256": "ec387612e22f706858ca6e16bb01f4835e8aa998bc5e32b87aaae0e0f9dec45b",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/manifest.json",
+      "sha256": "fdf497f72056939f98de4d2b48ab45de137b97e92b7a0b2ecccddb56abb8a3a9",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/structural_candidates.tsv",
+      "sha256": "2fe595d384d7c2ede58a6d6bae912834a0f4b4ad8b5ed025159ace97cac7cd16",
+      "bytes": 20555
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/summary.json",
+      "sha256": "774b8d2aeb26a51188e04f7dbbae5bcc656845baf14c6b410744b79a43804473",
+      "bytes": 1230
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03742/DRB1/timing.json",
+      "sha256": "8076ee74d618a977fe432b42b2020c094810e5c8f6e16eccf3a3877758c817bc",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/COMPLETE",
+      "sha256": "abd50c3b7cc74a9d4352e8589aa748b69c566f48fc8e2b202735547b04f851c8",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/fragment.json",
+      "sha256": "4545dc7b0c4e0ebd864911c27be5b2aa7c197583beab530c289518b4b91f3001",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/gam.stats.txt",
+      "sha256": "a39b2ac255efe0d7509af3639ba7adecc9f5f6c70140f9fa3fd75820b459af18",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/manifest.json",
+      "sha256": "eb6071d769132d25850a128e70e48101a9876300caea2ea719027b46026c2116",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/structural_candidates.tsv",
+      "sha256": "96ed8b7149c0790ac6d707be4f1f62bea1c954512b25b1acb25f87825df3affb",
+      "bytes": 4218
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/summary.json",
+      "sha256": "b54488431075304a2fd0427dcee885a6e92a2aa0e2a470c1002b2ebd4fec0edc",
+      "bytes": 1227
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/HG03804/DRB1/timing.json",
+      "sha256": "fad7248c378560ee193b1f75f44ec65d894b4a85c248bc5760cda7f777c6000e",
+      "bytes": 434
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/COMPLETE",
+      "sha256": "31a9d358394377d451a7b8e8151d63f2eb82fb1183c1c944ec2c180dfd07f068",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/fragment.json",
+      "sha256": "31ce278cb868f03f0186518cbf0dd2ee8c8bd6a063a681fed036e55d0d8675a3",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/gam.stats.txt",
+      "sha256": "785cadd3e5af29e9d4ee781604d2ef7983706dfaa135be73d35c990e45674a68",
+      "bytes": 610
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/manifest.json",
+      "sha256": "bef1b134c86573b2ad78bdce6958dee05554d85b4ffed624b26fff6fc92aa00a",
+      "bytes": 1931
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/structural_candidates.tsv",
+      "sha256": "9710f2ace5e124a439e77a9a37c10dad98af97d8212fcf31eba85b29eb25dde6",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/summary.json",
+      "sha256": "acdbbfa1fd9b48c6941aaab0018c189c0a7c8c56d27d62f0eed8794c3f5bd42a",
+      "bytes": 1232
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA18620/DRB1/timing.json",
+      "sha256": "c9a9a68c57d9e96e30520770ba365c005e1ecc578d7c61c8a0ed769b0071c3e0",
+      "bytes": 437
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/COMPLETE",
+      "sha256": "1474a4a1d4b2e56122737dc48ec9d0f3db186899cb12cd320bbc09abc7ecc123",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/fragment.json",
+      "sha256": "9109c920925b91e6809e1505e47811e561adea0bbfafec50311cecdb28696f28",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/gam.stats.txt",
+      "sha256": "2155bddc0b5145766fa2c1221bed68d38bfb6f68b95c695c349f141184500315",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/manifest.json",
+      "sha256": "f7bc8740e1481021185e5d9af5794bc9413b3266dcdbe89750070d574739013f",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/structural_candidates.tsv",
+      "sha256": "31c723435e49ca8a62278ba56e6928be1f34c016a1369aaa5de3076f6e22c652",
+      "bytes": 20554
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/summary.json",
+      "sha256": "341b60aa79e280323a372f6ab24b36b36058c506057976f94354182e6309a665",
+      "bytes": 1229
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA19087/DRB1/timing.json",
+      "sha256": "ddd38f03565085535284abe0839041217bff5fdce29b3f3d8f987b20570250bc",
+      "bytes": 436
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/COMPLETE",
+      "sha256": "379d6f0a81cc469de9a018703c35ef8583d7a6cda222bf33cef820f0c7112ca5",
+      "bytes": 691
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/fragment.json",
+      "sha256": "f9072c1c7201f561130697364ee680a12c0c126b866c7efd9ce87e53263e8cfc",
+      "bytes": 79
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/gam.stats.txt",
+      "sha256": "f2c10778b15b5bfd684371c4ab000b5c70833ae534befca0aa30c1a59e9122f1",
+      "bytes": 609
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/manifest.json",
+      "sha256": "33376580c2538e418ccf91c9754f907d3965f40ec865f5bd9862e3a289dafbc0",
+      "bytes": 1932
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/structural_candidates.tsv",
+      "sha256": "4785ae251dee235aca2cb9b86ba92d150aa6d4c0d514567492edebb1af788169",
+      "bytes": 21460
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/summary.json",
+      "sha256": "2e4a3160c2c9c8d6031c7ed215599a153d1192f8f151dcc4b8ef661b4dc37c5f",
+      "bytes": 1229
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/diagnostics/NA21093/DRB1/timing.json",
+      "sha256": "e8cb02117ffd21bc872d34c4ba3ff0cda8fed5780f112958be034d3c50596f69",
+      "bytes": 435
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/paired-score/cohort.json",
+      "sha256": "185c9a705073d0ab2a071b064aebd7b78eb0e94c8637a78cf1c10ddcca3f63c2",
+      "bytes": 261
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/paired-score/paired_scores.tsv",
+      "sha256": "586c09fc42ee21c3c0e8587ffc079487974ade4b0d4e571af55395acb4abd0bd",
+      "bytes": 15810
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-hybrid-v4/paired-score/summary.tsv",
+      "sha256": "32f4f6cb4093f68726970592b39c66d16e7dd314a340054155e0a128b3883870",
+      "bytes": 2461
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/PREPARED.json",
+      "sha256": "ed58e1a35bfb5c6c87f069b2330e634939b88417ab7d97746ad11c18638cbc23",
+      "bytes": 15881
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/code/build_refs.py",
+      "sha256": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+      "bytes": 5924
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/code/experiment.py",
+      "sha256": "f9766f3a057a3b3ed593887557735ccdbc331b6186ff3fd467d8c0f25f325a8a",
+      "bytes": 15044
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/code/graph_diagnostic.py",
+      "sha256": "0684f79788bdcb60af6a6e9553ec5032b10d83ee8b07a2bb8700645fa0a5ba96",
+      "bytes": 9806
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/code/jobs/phase_experiment.sbatch",
+      "sha256": "0fc7e303fab370657f5b48e63c945ccc5c81bea2f757cd61375c69d227589ee2",
+      "bytes": 741
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/code/phase_linkage.py",
+      "sha256": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+      "bytes": 1238
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/A-pggb/gam.stats.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/A-pggb/manifest.json",
+      "sha256": "e49b482f45bb93f4ae2ea2de1883749e3a90de4e9c04086783f576ee0c620765",
+      "bytes": 1758
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/A-pggb/preservation.json",
+      "sha256": "a74a14127a1a97856c983dfac60a4995ab8cba92a2c5097ccb381766d7f48c8e",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/A-pggb/timing.json",
+      "sha256": "4bd4ff66d8af9d80ec826abae88c130e54d2edee342fa1be9c2dfcfd68099dd4",
+      "bytes": 116
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-mc/manifest.json",
+      "sha256": "0a05bbb5a20cbb90368f499a48ff9ddef7f9262507e66d26e5a23db302d5111e",
+      "bytes": 1702
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-mc/preservation.json",
+      "sha256": "b4215f6cae33da02f02fd183dbb3fa2ea19c350bd72da0a2c20bda6914163ebe",
+      "bytes": 15152
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-mc/timing.json",
+      "sha256": "4c80e44527bea71ac90a16b44c3c841923baa479f713ed81460e6ec0c85515ae",
+      "bytes": 42
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-pggb/gam.stats.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-pggb/manifest.json",
+      "sha256": "40d22746d12f222aa2dfc9e7cdedcbfc6d73a57eb938f46dfa863851fdc81f5c",
+      "bytes": 1785
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-pggb/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v2/DRB1-pggb/timing.json",
+      "sha256": "931f23edb0686ac9ba1e829ee16799ff287b90adeb5ca91c4e50b479f0553f09",
+      "bytes": 115
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/COMPLETE",
+      "sha256": "ce55bd5392093ad68e289a408a148183219d2c8853cb8550c21610328989bbc0",
+      "bytes": 588
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/gam.stats.txt",
+      "sha256": "ab73bce9f18ae7e28c79a35f18ceb69cd5fdadb426c90ca5baa8aca70e2cbefc",
+      "bytes": 587
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/manifest.json",
+      "sha256": "f2318e7af31aa013d24a32116d0e6118b5000edde08b72b263b91e0491a23f67",
+      "bytes": 1898
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/preservation.json",
+      "sha256": "a74a14127a1a97856c983dfac60a4995ab8cba92a2c5097ccb381766d7f48c8e",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/summary.json",
+      "sha256": "3c8c4dcc04466b98788883da1ee772bf9a1ec47543e88eb2e100fbeb3c66ba29",
+      "bytes": 960
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/A-pggb/timing.json",
+      "sha256": "08cb5dc6eef61b46e0e57699e8ae563d3c0441756c66338d6e493d7f8e285ffc",
+      "bytes": 318
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/COMPLETE",
+      "sha256": "ab2c2ae31ca0df216d220a6b32f1d592807c0c9e817d376c1ff5fc1541de73c0",
+      "bytes": 589
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/fragment.json",
+      "sha256": "f198e772e108b2d784c6328515297da74515b645afe39e35a8766c6e4a84e709",
+      "bytes": 80
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/gam.stats.txt",
+      "sha256": "aecc443c9df8184b649e6a4b7a3c5225addb0033cfe8292dbe86d7e5ab6ca968",
+      "bytes": 599
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/manifest.json",
+      "sha256": "30b739343972b03e308911c5159c0432499341cf736773fd0642209347744ca1",
+      "bytes": 1928
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/preservation.json",
+      "sha256": "3a12858587c09a3544a5412b94de5dda9d0b59ed5b80615ac94fc8d93c6dfb74",
+      "bytes": 133
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/summary.json",
+      "sha256": "35661ddcc976932794b31a857c6979677cdf549040dde2b936e68d204ea28647",
+      "bytes": 958
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics-v4/DRB1-pggb/timing.json",
+      "sha256": "4f9788dcc95ebf689634fd20222289a252aeb26fa18a07dae3e691c714a14cd9",
+      "bytes": 317
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/A-pggb/manifest.json",
+      "sha256": "600d4e91754d8beaf33f1d75bb20d5700d40d015646c42348ee631a1e32e0ae8",
+      "bytes": 1687
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/A-pggb/preservation.json",
+      "sha256": "5b77ec56b181ccda4adc31f802e0f626357911453e874514706452f2c01f7ffc",
+      "bytes": 36220
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/A-pggb/timing.json",
+      "sha256": "51bb52b5e65119c82dbdbdf8b32ce61212f7be9aee304ec22aee5143e128d103",
+      "bytes": 41
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/DRB1-mc/manifest.json",
+      "sha256": "29ac1db8736f1b3cb6d1443c4cfde85eb3ca825eacbbd0d979db4f4c2ee2bbc1",
+      "bytes": 1700
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/DRB1-mc/preservation.json",
+      "sha256": "8bb9e557e419b62a5ac044a1b2fbfc85c961fd987ba90ace479f61da719d9318",
+      "bytes": 24558
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/DRB1-mc/timing.json",
+      "sha256": "0a621bbfedbae03c3c20427183cf9ee398d162bcc5ded845dd402b667b7477a8",
+      "bytes": 41
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/DRB1-pggb/manifest.json",
+      "sha256": "35165b81bd05e8ac49a5e9d60e11f4592d8ee9db7d9486e2e1398512000939ac",
+      "bytes": 1712
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/DRB1-pggb/preservation.json",
+      "sha256": "52f4dff767992f95af178c933f6a13b663c117dd1e3c903752d35476dcab71a0",
+      "bytes": 40704
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/diagnostics/DRB1-pggb/timing.json",
+      "sha256": "86fbbb6d3716016bb484e8a6464c94728b351b854d608f39a55c025ceff892f7",
+      "bytes": 41
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/paired-score/cohort.json",
+      "sha256": "026e756ba2496ec6b21a96ede25281bd9b9ccbde73c83d199f4681452fe69c7e",
+      "bytes": 241
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/paired-score/paired_scores.tsv",
+      "sha256": "da16e5a1c2350bb185fca2d09ad91486206e35118e98c8e5633e9e183f529688",
+      "bytes": 14584
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/paired-score/summary.tsv",
+      "sha256": "a17139145eff6f597f52268d2905ce71a281c84e71f445b747c6c5377d7e3967",
+      "bytes": 2285
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/smoke-score/cohort.json",
+      "sha256": "fd37b253b357fba176462f8b43f4d5dc660504c88a2e43faf3df6e1c822c152c",
+      "bytes": 136
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/smoke-score/paired_scores.tsv",
+      "sha256": "748faa228eb83e612ed0edc4511f362ea65189a3db3380c577bbbeba32413ae1",
+      "bytes": 2005
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v1/smoke-score/summary.tsv",
+      "sha256": "1ea59048e616e14922aea529285b30381dae94aff1adfe27c3c659feea5734e5",
+      "bytes": 2054
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/PREPARED.json",
+      "sha256": "62dee6bb96a81e429d410e7309bd7af3043dd0da639d118382271f23128fe633",
+      "bytes": 22061
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/code/build_refs.py",
+      "sha256": "5f6ab2a5d4800e04a90afcd63b1fa8e481e1ed567ecd85a4b40cdcfb993ee86b",
+      "bytes": 5924
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/code/experiment.py",
+      "sha256": "d88b67885e36d665535573e9024a78e8e91568a0575ecb827d64f641081586ff",
+      "bytes": 16162
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/code/graph_diagnostic.py",
+      "sha256": "0684f79788bdcb60af6a6e9553ec5032b10d83ee8b07a2bb8700645fa0a5ba96",
+      "bytes": 9806
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/code/jobs/phase_experiment.sbatch",
+      "sha256": "0fc7e303fab370657f5b48e63c945ccc5c81bea2f757cd61375c69d227589ee2",
+      "bytes": 741
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/code/phase_linkage.py",
+      "sha256": "23ae063c4609512c71edd85114157f895103be5e464932dfb85dcf6dca794229",
+      "bytes": 1238
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/paired-score/cohort.json",
+      "sha256": "eb98a6eeb453a413661a97fdfdd25b17ded6d3d17521827d0b0ef62df61172a7",
+      "bytes": 243
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/paired-score/paired_scores.tsv",
+      "sha256": "2c7857b165385a448f6e91b3f7b7a8152a099d428a2ae7d6bf2fa12f0edda094",
+      "bytes": 12106
+    },
+    {
+      "path": "hla-spechla-pg/results/experiments/20260918-phase-v2/paired-score/summary.tsv",
+      "sha256": "220a79bfc0ff9f04c850c8f4c79ac3f39d2e26eaf624dc36dd6321104bbe03e1",
+      "bytes": 1928
+    },
+    {
+      "path": "hla-spechla-pg/results/native-rescore-20260918/comparison.json",
+      "sha256": "4b473b8e5e6dbe9bb089714876e4fffb34d393bccfaad3751135f5a97503a310",
+      "bytes": 17067
+    },
+    {
+      "path": "hla-spechla-pg/results/native-rescore-20260918/native_gene_scores.tsv",
+      "sha256": "10e206111b3e51a71565059ba82409bf017c3c4c3f84a2c8ab41caff19cab0d5",
+      "bytes": 2621
+    },
+    {
+      "path": "hla-spechla-pg/results/predictions.tsv",
+      "sha256": "6fc8eb7982a44855d74d56d3c9b15ad64e5350aa650ec1602e3f4d16b1ff94df",
+      "bytes": 21495
+    },
+    {
+      "path": "hla-spechla-pg/results/scores.tsv",
+      "sha256": "b14cf23ea6822fdf03fba849a720968a28100b88d79ad58d3e80d21464ebd971",
+      "bytes": 82109
+    },
+    {
+      "path": "hla-spechla-pg/results/sequence_scores.tsv",
+      "sha256": "17cf584d6e311793c178fd17868e2dde276f1800a2719b7e1e7432bcee835615",
+      "bytes": 3901
+    },
+    {
+      "path": "hla-spechla-pg/results/summary.tsv",
+      "sha256": "5da1542547d6cede9eec9fab54d142997838a0187f3f42dd86174a137b2d9b6f",
+      "bytes": 13008
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/installed-map_block2_database.py",
+      "sha256": "a951894c073391cb13ce8ce8371031267215ee4c6fc9851c93bdbc6d30042e23",
+      "bytes": 9024
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/LICENSE",
+      "sha256": "3f8c08f9ead027dcc736261777563725c362cc13b2a33b6abbfb7b5aee753303",
+      "bytes": 1070
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/ExtractHLAread.sh",
+      "sha256": "4481365e67715d9f7fa84c63350efb49e6b7ba56d35a3edeab01b278ca21a8ef",
+      "bytes": 23913
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/assign_reads_to_genes.py",
+      "sha256": "eae0976e53d5672414c8f83f9d803b34fe6fa8cc579352985369ab6ce33df532",
+      "bytes": 7670
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/mask_low_depth_region.py",
+      "sha256": "e0d8d2d0782c5100156fc4d6a85b64c186c755ba823eb79e638bc9e52a6b9f91",
+      "bytes": 5547
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/phase_unlinked_block.py",
+      "sha256": "21567e79f1c2c6e96193a3868dd6fbad7395192b170540de9f71f70e94781219",
+      "bytes": 4340
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/phase_variants.py",
+      "sha256": "3d8b96cf793bff828376d4e1060477f8dff0856f2fcf1c77f8b8395aa6a5d41a",
+      "bytes": 85536
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/run.assembly.realign.sh",
+      "sha256": "17e76de500dacafba6814d5e1c348b5f6e7b3d33100330300b93cc49d3d6bb0e",
+      "bytes": 3570
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/whole/SpecHLA.sh",
+      "sha256": "56198fdc2f9542877f6e7e2e57e3d4ca3c1cf3f4441ef19c53729c5e1d446a6c",
+      "bytes": 15195
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/whole/annoHLA.pl",
+      "sha256": "7aef9916cb6380cb5f924c92882c3a899387de743a56bff17671c380de864159",
+      "bytes": 16502
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/whole/map_block2_database.py",
+      "sha256": "a951894c073391cb13ce8ce8371031267215ee4c6fc9851c93bdbc6d30042e23",
+      "bytes": 9024
+    },
+    {
+      "path": "hla-spechla-pg/review-2026-09-18/upstream/script/whole/select.region.txt",
+      "sha256": "6364833e71e40cf62c89d24f88353afcc4160e3d445effb3a5877b087aabd756",
+      "bytes": 478
+    },
+    {
+      "path": "hla-spechla-pg/score.py",
+      "sha256": "694f64bdc54a14dcac1453630576f4b2fc5330cbc2695546d54978e6246b784b",
+      "bytes": 11549
+    },
+    {
+      "path": "hla-spechla-pg/score_comparators.py",
+      "sha256": "b330c43d55b8ed6115196b98752e7edc4dd7756d17debdc52bf83aad833e13a3",
+      "bytes": 7634
+    },
+    {
+      "path": "hla-spechla-pg/score_experiment.py",
+      "sha256": "3b25b572f6d095f367ee5dad90396989df80a01309e8805a79870b96b7cfa76f",
+      "bytes": 5136
+    },
+    {
+      "path": "hla-spechla-pg/score_validation.py",
+      "sha256": "9402a912ee42d3a6d97badcdb1e7a498fe786fdab7f7781af3923d7ca936ec6f",
+      "bytes": 8707
+    },
+    {
+      "path": "hla-spechla-pg/source/Allelelist.txt",
+      "sha256": "7f09c715523d4256d33ee9634576c7cd963f46bf123295120b4e2a6327c6f334",
+      "bytes": 954077
+    },
+    {
+      "path": "hla-spechla-pg/source/asian50-spechla.packages.json",
+      "sha256": "4d122c928fb7c8be67c745b3f1a68a37b501a6cc9f43f0d09752de17d786d94f",
+      "bytes": 112189
+    },
+    {
+      "path": "hla-spechla-pg/source/cactus.packages.json",
+      "sha256": "26da01035d5029f1246637315632d7c7c7e64b2bd4f11625871497bda50069b2",
+      "bytes": 48
+    },
+    {
+      "path": "hla-spechla-pg/source/donors.tsv",
+      "sha256": "f68c6fcd534f99eda2bb252070f6a05a0dd9229dc2987b557f920476bd836c2e",
+      "bytes": 8281
+    },
+    {
+      "path": "hla-spechla-pg/source/donors_dev.tsv",
+      "sha256": "9ca99f28b4c3b5c7e462ba20f0368fe9c7d144197cbadbb590997a0ee00fdf12",
+      "bytes": 4694
+    },
+    {
+      "path": "hla-spechla-pg/source/donors_folds.tsv",
+      "sha256": "6aa4d1f8851cc3981e8358e4a4cd018bf5668c6046d05fdecb5c626d2b510808",
+      "bytes": 4779
+    },
+    {
+      "path": "hla-spechla-pg/source/excluded_paths.tsv",
+      "sha256": "7ed82c4279ce01bbf4dee71d559c9452081f55bae31684305965c9423b7ebc89",
+      "bytes": 2449
+    },
+    {
+      "path": "hla-spechla-pg/source/hla_nom_g.txt",
+      "sha256": "e7c964d1aac67979c71debf2144df01dbac3476344de94773cce1a8794556d6c",
+      "bytes": 519958
+    },
+    {
+      "path": "hla-spechla-pg/source/pggb.packages.json",
+      "sha256": "305e455992f88ee16c7d814dfa8a941351445cda6114b27b581c20f9a145c7bf",
+      "bytes": 97401
+    },
+    {
+      "path": "hla-spechla-pg/source/validation_groups.tsv",
+      "sha256": "b268a06f519aee2f18ce6c04e1c91fb4bd3da62e42bb73e713e90018c46321f0",
+      "bytes": 41765
+    },
+    {
+      "path": "hla-spechla-pg/spechla_pg.sh",
+      "sha256": "aa815fc71ff4d928528d95b7f59ccb15d9aeb40e39f187ccc490aca471e1eb68",
+      "bytes": 7801
+    },
+    {
+      "path": "hla-spechla-pg/structural_overlay.py",
+      "sha256": "8385e47c3b5c99f6b9960d604b51c29598935d03ffdcb4a9ceb1d4d3fc23c35e",
+      "bytes": 11597
+    },
+    {
+      "path": "hla-spechla-pg/test_comparator_scoring.py",
+      "sha256": "30c0542c42754fd2e196ab9bf12ea877926b820f8514547f2fb0e1affeab69a4",
+      "bytes": 1679
+    },
+    {
+      "path": "hla-spechla-pg/test_designate.py",
+      "sha256": "4b6aee01806ade5ecc3842a567a0016b06b6e312096408a18d75544a0106be9d",
+      "bytes": 5926
+    },
+    {
+      "path": "hla-spechla-pg/test_experiment.py",
+      "sha256": "e2574d955c27a5fd81ef91d4f185f91cb7c3733d09e3f29779d94362a0f1973e",
+      "bytes": 3742
+    },
+    {
+      "path": "hla-spechla-pg/test_graph_diagnostic.py",
+      "sha256": "2459c4c595e66f50a643fc5679502b83396363b785836ae4d5ac87de690fb728",
+      "bytes": 1345
+    },
+    {
+      "path": "hla-spechla-pg/test_score.py",
+      "sha256": "85abbe359a917016edb31462702052fb46459a1301f4a3c4abfb30333a48b4a8",
+      "bytes": 3319
+    },
+    {
+      "path": "hla-spechla-pg/test_score_experiment.py",
+      "sha256": "03bd8361eed788166c8b1f2f00d63c2300f875a2540dffce2950359bf4c440fb",
+      "bytes": 541
+    },
+    {
+      "path": "hla-spechla-pg/test_structural_overlay.py",
+      "sha256": "3e12ea9bc3eddbfbff755324b773e491db7ad743139dde45f54d675e5d004f31",
+      "bytes": 3009
+    },
+    {
+      "path": "hla-spechla-pg/test_validation_reporting.py",
+      "sha256": "d8f983f3026dc2096922ae27b0159a3d65429a7cda0065d88c9ca4de3a708295",
+      "bytes": 1433
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/PROTOCOL.md",
+      "sha256": "74b3bb6750a487c85a185a75c7738915ea19bd77e3ed40e23bececfa5bb17a15",
+      "bytes": 8442
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/STATUS.md",
+      "sha256": "7de305194c872783683b916bab8a36cf00cc6651d43d07564780d51f942768c7",
+      "bytes": 1605
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/cohort.tsv",
+      "sha256": "8dfe24f4ef2a988a23b4b9f63efc5bd433ca2a6c2aa08954fbd2dafe78c4e950",
+      "bytes": 6676
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/frozen-method.json",
+      "sha256": "a5b04710ad5fc08be047aeb0bf56629124bac41ce67240375b2ab794ba2b4dd3",
+      "bytes": 881
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/launch.json",
+      "sha256": "f11565aac996f21b4ac662c80961289a5859c1432e3f77d68c9999cc34da2178",
+      "bytes": 1153
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/native-long-launch.json",
+      "sha256": "9dac9cd8a67a2ef78159545720f27af471b07d199286f621e23a45aa4ea3831e",
+      "bytes": 273
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/smoke_native_long.py",
+      "sha256": "863ff0fde8f903c9f5ff40007b3c8d16f956e8c29f7568b8b3da11c0771931f7",
+      "bytes": 1888
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/t1k-provenance.json",
+      "sha256": "869a5120244394fd221c46f1b7c88ae0416a8c28ac2299d5a849d2f0a3536a99",
+      "bytes": 8380
+    },
+    {
+      "path": "hla-spechla-pg/validation/20260918/truth-eligibility.json",
+      "sha256": "e80d7077606320de6961c9eb69d56e3e64a7767009969ab0888ce2db9d87b936",
+      "bytes": 2156
+    }
+  ]
+}

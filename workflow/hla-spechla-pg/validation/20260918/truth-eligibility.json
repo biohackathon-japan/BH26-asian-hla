@@ -1,0 +1,26 @@
+{
+  "assembly_gene_pairs": 256,
+  "missing_assembly": [],
+  "experimental_two_field_gene_pairs": 29,
+  "assembly_two_field_gene_pairs": 256,
+  "input_and_scoring_sha256": {
+    "hla-analysis/source/HLA-A.fa": "33f32b808fe3cfd6e4fa3e3a8bcbb002b814c87fbc86001aa6366265b4cbf55f",
+    "hla-analysis/source/HLA-B.fa": "fa8a7bb0aeb6b83e81806cceb4c448d7708332cd83b9039dbf8255a572d90ceb",
+    "hla-analysis/source/HLA-C.fa": "8a5e60379d58442d1c5e0e591b4ffa4cc00c86c0c6b01471a1b975cf6df91bc6",
+    "hla-analysis/source/HLA-DPA1.fa": "2dbf38dc6d33c452b145f02616a9348b2432f017ffebb693e18cfc07313e8c6c",
+    "hla-analysis/source/HLA-DPB1.fa": "2811e2363ef93a13f0926b3849eca25f18b556faafa073ea781f2963a529bc37",
+    "hla-analysis/source/HLA-DQA1.fa": "630dc2ce0d83c25ad402832982490fe35e66bc70f7d25b26eaae2937f5c369d4",
+    "hla-analysis/source/HLA-DQB1.fa": "992b27381973d955af7c6e02f5594bbe1db2e41818d066680b26332287d2edb4",
+    "hla-analysis/source/HLA-DRB1.fa": "b222140f834e8d1df8e713b19ac213acfd6f9eb7b68104ea3372f920f585f100",
+    "hla-analysis/results/sequence_catalogue.tsv": "f0b19828e7ade7b7344021b29b694881209238074761508cf5fb2da90a04a356",
+    "hla-analysis/source/imgt/wmda/hla_nom_g.txt": "e7c964d1aac67979c71debf2144df01dbac3476344de94773cce1a8794556d6c",
+    "hla-bench/source/imgt/Allelelist_history.txt": "8b0c78173907fbbe981d7e70d176515c50550fb8e3395467a61ee0f044b46255",
+    "1000g_ground_truth/1000G_2014/20140702_hla_diversity.txt": "0455d0302ac12a29ab87091cab5e3e557416f6301e89fb122eef8d49cd5644ec",
+    "hla-spechla-pg/score.py": "694f64bdc54a14dcac1453630576f4b2fc5330cbc2695546d54978e6246b784b",
+    "hla-spechla-pg/score_experiment.py": "3b25b572f6d095f367ee5dad90396989df80a01309e8805a79870b96b7cfa76f",
+    "hla-spechla-pg/score_validation.py": "9402a912ee42d3a6d97badcdb1e7a498fe786fdab7f7781af3923d7ca936ec6f",
+    "hla-bench/names.py": "7edff671f812eb077775fa1f424d3b945281f0991a13b13f1406e9d320a13103",
+    "hla-bench/truth.py": "935be7ca0dddd1938fdffb92338f284846a1de91617ece7227448e53f489c3b0"
+  },
+  "supplemental_arm_note": "Prespecified native-long arm included after pilot feasibility passed; no primary scoring rules changed."
+}

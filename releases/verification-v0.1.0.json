@@ -1,0 +1,20 @@
+{
+  "archives": [
+    {
+      "archive_root": "AsianPGR-v0.1.0",
+      "verified_files": 18
+    },
+    {
+      "archive_root": "DogoHLA-v0.1.0",
+      "verified_files": 432
+    },
+    {
+      "archive_root": "analysis-v0.1.0",
+      "verified_files": 1392
+    }
+  ],
+  "tests": 41,
+  "test_result": "passed",
+  "source_cli_version": "DogoHLA 0.1.0",
+  "graph_source_files_verified": 15
+}

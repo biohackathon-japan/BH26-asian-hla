@@ -1,0 +1,12 @@
+{
+  "donors": [
+    "HG00706"
+  ],
+  "arms": [
+    "A-replay",
+    "A-fixed",
+    "AE-ipd365",
+    "AE-panel"
+  ],
+  "complete": true
+}
