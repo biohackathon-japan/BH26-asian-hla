@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/dogohla-logo.png" alt="DōgoHLA logo" width="320"></p>
+
 # DōgoHLA and AsianPGR
 
 **DōgoHLA** is a population-specific, pangenome-based method for reconstructing
