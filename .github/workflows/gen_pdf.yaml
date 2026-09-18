@@ -1,0 +1,117 @@
+name: Generate PDF
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Only one build per ref at a time. A newer push supersedes an in-flight build,
+# so the PDF that gets committed is always the one for the newest paper.md.
+concurrency:
+  group: gen-pdf-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gen-pdf:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6
+
+    - name: Validate metadata
+      run: |
+        # Extract YAML front matter
+        YAML=$(sed -n '/^---$/,/^---$/{//b;p}' paper/paper.md)
+        ERRORS=""
+        for field in biohackathon_name biohackathon_location biohackathon_url git_url; do
+          if ! echo "$YAML" | grep -q "$field"; then
+            ERRORS="${ERRORS}  - Missing required field: ${field}\n"
+          fi
+        done
+        if [ -n "$ERRORS" ]; then
+          echo "::error::Metadata validation failed"
+          echo -e "The following required fields are missing from paper/paper.md:\n${ERRORS}"
+          echo "See https://index.biohackrxiv.org/for-submitters/ for details on required metadata."
+          exit 1
+        fi
+        echo "All required metadata fields present."
+
+    - name: Generate PDF
+      uses: kohlerdominik/docker-run-action@v2.1.0
+      with:
+        image: ghcr.io/biohackrxiv/bhxiv-gen-pdf:master
+        volumes: ${{ github.workspace }}:/work
+        workdir: /work
+        run: |
+          gen-pdf paper
+
+    - name: Create info file
+      run: |
+         echo -e "ref: $GITHUB_REF \ncommit: $GITHUB_SHA\nbuild: $(date +"%Y-%m-%dT%H:%M:%SZ")" \
+         > info.txt
+
+    - name: Upload generated PDF as artifact
+      uses: actions/upload-artifact@v7
+      with:
+        name: paper
+        path: |
+          paper/paper.pdf
+          info.txt
+
+    - name: Commit PDF to repository
+      if: github.event_name == 'push'
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add paper/paper.pdf
+        if git diff --cached --quiet; then
+          echo "No changes to PDF"
+          exit 0
+        fi
+        git commit -m "Update paper.pdf [skip ci]"
+        for attempt in 1 2 3 4 5; do
+          if git push; then
+            exit 0
+          fi
+          echo "Push rejected (attempt $attempt); rebasing onto origin/$GITHUB_REF_NAME"
+          git pull --rebase origin "$GITHUB_REF_NAME" || exit 1
+          sleep $((attempt * 3))
+        done
+        echo "::error::Could not push the regenerated PDF after 5 attempts"
+        exit 1
+
+    - name: Comment on PR with PDF link
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v9
+      with:
+        script: |
+          const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+          const body = `### PDF Preview Ready\n\nThe PDF has been generated successfully. Download it from the [Actions artifacts](${runUrl}#artifacts).`;
+          // Check for existing bot comment to avoid duplicates
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+          const botComment = comments.find(c =>
+            c.user.type === 'Bot' && c.body.includes('### PDF Preview Ready')
+          );
+          if (botComment) {
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: botComment.id,
+              body: body,
+            });
+          } else {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body,
+            });
+          }
