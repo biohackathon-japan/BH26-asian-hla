@@ -1,63 +1,44 @@
-# Talk track (~3 minutes)
+# Speaker notes
 
-## 1 — Whose HLA is in your reference?
+## 1. Asian HLA pangenome
 
-“We combined five projects into an MHC graph with 754 haplotype entries. The table
-shows each project's sample and haplotype contributions. These include 462
-Asian or Arab haplotype entries: 266 East Asian, 72 South Asian and 124 Arab.
-We also have a reproducible extraction and annotation workflow and MHC reads
-from the 2,504-sample 1000 Genomes cohort.”
+The construction panel combines HPRC, APR, JaSaPaGe, K-PanRef and CPC.
+HPRC contributes 232 donors, including 16 Japanese JPT donors (32 haplotypes).
+JaSaPaGe contributes 10 Japanese and 9 Saudi donors. Five donors occur in both
+HPRC and JaSaPaGe: the table totals 376 project entries, or 371 distinct donors.
+The 752 donor haplotype entries plus GRCh38 and CHM13 give 754 entries.
+The Asian/Arab total is 462: 266 East Asian, 72 South Asian and 124 Arab.
+Donor location labels describe source populations, not current residence.
 
-Counts are source entries. APR contributes 53 samples, HPRC 232, JaSaPaGe 19
-(nine Saudi and ten Japanese), K-PanRef 14 and CPC 58. They total 376 source
-sample entries from 371 distinct donors, because five donors occur in both
-HPRC and JaSaPaGe. Each sample entry contributes two haplotypes; GRCh38 and
-CHM13 add two references. The former 390 Asian/Arab count omitted 72 South
-Asian HPRC haplotypes. The current breakdown includes them explicitly.
+The map, construction backbone and class II/DRB bundle graph use the manuscript
+Figure 1 data. The construction backbone has 1,677 segments and 2,381 links;
+the final Minigraph-Cactus graph has 417,896 nodes and 579,137 edges.
+The regional graph was regenerated locally with pgr-tk from 753 sequences.
+Layouts show adjacency; graph distances are not genomic coordinates.
+The separate 1000 Genomes read resource contains 2,504 samples.
 
-## 2 — More haplotypes. Better SV calls.
+## 2. Variant recovery compared with HPRC
 
-“We evaluated the same reads with PanGenie and two reference panels in 20 East
-Asian and 20 South Asian donors. The eligible graph truth includes 79,844 SNV
-sites and 298 sites containing a structural allele per donor. Among the
-SV-bearing truth genotypes, exact recovery increased from 72.4% to 76.2% in
-East Asian donors and from 75.3% to 77.3% in South Asian donors.
+The same PanGenie caller and reads were used with expanded and HPRC-only panels
+in 20 East Asian and 20 South Asian donors. Points show the pooled accuracy
+difference, with 95% intervals from paired donor bootstrap resampling.
+SV-bearing genotypes improve by 3.89 and 1.97 percentage points. Shared SNVs
+improve by 0.047 and 0.023 points. The SNV axis is expanded; its gains are much
+smaller, and the South Asian interval includes zero.
 
-There are 1,465 and 1,577 eligible SV-bearing donor genotypes, respectively.
-The separate fixed shared-SNV comparison has 1,007,636 donor-site comparisons
-per ancestry group. These are pilot results against assembly-derived truth.
-Panel size and ancestry composition change together.”
+The SV endpoint requires exact recovery of the unordered whole allele pair
+for donors carrying an allele at least 50 bp different in length from reference.
+Its eligible denominators are 1,465 EAS and 1,577 SAS genotypes. The fixed
+shared-SNV endpoint has 1,007,636 donor-site comparisons per ancestry group.
+The broader truth includes 79,844 SNV sites and 298 SV-containing sites per
+donor; these counts are kept here to leave the slide focused on the comparison.
 
-SV-containing sites have at least one graph allele differing in length from
-reference by at least 50 bp. An SV-bearing truth genotype has a long allele in
-that donor. The figure scores the latter, so its denominator differs from all
-298 sites multiplied by donor count. Exact success requires the whole unordered
-allele-sequence pair, including embedded small variants. Missing calls count
-as failures. The confidence intervals resample paired donors. Test families
-were excluded from inference panels; test assemblies remain in graph topology.
+Non-Asian variant recovery has not yet been evaluated. The non-Asian row has
+no estimate. The ongoing DogoHLA typing experiment measures another endpoint.
+Panel size and ancestry composition change together. Test families are excluded
+from panels, while test assemblies remain in the graph topology.
 
-Non-Asian sample and variant counts will be added after the ongoing comparison
-completes and its denominators and outputs are verified. No interim non-Asian
-numbers enter this deck.
+## 3. DogoHLA
 
-## 3 — DogoHLA
-
-“DogoHLA is a pangenome-native, population-specific HLA typer. Population panel
-sequences guide read collection. We call and phase read-supported variants,
-then use supported noncoding indels from locus graphs to refine the two gene
-sequences and assign HLA names. The implementation uses SpecHLA components for
-alignment and small-variant inference.
-
-In eight development donors, exact global whole-gene matches increased from
-36 of 128 with native SpecHLA to 57 of 128 with the selected DogoHLA candidate.
-Total sequence edit distance decreased by 22.8%, and correct two-field genotypes
-increased from 61 of 63 to 62 of 63. These are selected development results.
-Further independent analysis is needed; the larger evaluation is ongoing.”
-
-The comparison uses assembly truth, optimal pairing of the two haplotypes and
-global whole-gene exactness, with N counted as a mismatch. These numbers replace
-the earlier slide's 41/51 infix-matching comparison, which assessed a different
-metric and an earlier candidate. Controls attribute most exactness gains to
-phasing repair and updated phase references. The guarded graph step reduces
-residual noncoding DRB1 errors in two donors; exact-gene counts remain 57/128
-relative to the repaired-phasing control. See the evidence links in README.md.
+Dawn presents the method. This slide contains only her original DogoHLA image,
+retained at its native resolution from the org repository.
