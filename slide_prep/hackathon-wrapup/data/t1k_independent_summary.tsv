@@ -1,0 +1,4 @@
+cohort	level	eligible	called	correct
+assembly64	two_field	509	509	495
+assembly64	four_field	323	317	163
+experimental946	two_field	4723	4718	4437

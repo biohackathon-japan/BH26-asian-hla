@@ -1,0 +1,10 @@
+{
+  "source": "pangenome-bh26/hla-spechla-pg/series20260918/analysis",
+  "method": "T1K-four-field, IPD 3.65",
+  "verification": "Per-gene sums match summaries; 64 and 945 T1K raw output hashes match source provenance.",
+  "outputs": {
+    "t1k_assembly64_gene_scores.tsv": "7b2c1a99551dc84b4120082a7010570fe6a870c76dfdb867f1a9179ab5ba9120",
+    "t1k_experimental946_gene_scores.tsv": "52f1818a8910800cea631c85b03d6c64cf804441e4274b08748cdbe5eff10bff",
+    "t1k_independent_summary.tsv": "6d30cf7ee4f8831aba48a56ae58d050f7114fb10c3b88bc57b2fd7959a0896c8"
+  }
+}

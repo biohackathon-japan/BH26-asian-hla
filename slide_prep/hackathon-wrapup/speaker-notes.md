@@ -38,7 +38,33 @@ no estimate. The ongoing DogoHLA typing experiment measures another endpoint.
 Panel size and ancestry composition change together. Test families are excluded
 from panels, while test assemblies remain in the graph topology.
 
-## 3. DogoHLA
+## 3. DogoHLA and T1K reference performance
 
-Dawn presents the method. This slide contains only her original DogoHLA image,
-retained at its native resolution from the org repository.
+Dawn presents DogoHLA. The adjacent table reports T1K, using IPD 3.65 and
+four-field output, as the established-method reference in the independent
+evaluations. It contains no DogoHLA performance claim.
+
+The 64-donor matched assembly-truth cohort has 16 EAS, 16 SAS, 16 EUR and
+16 AFR donors. All 64 T1K runs completed. Across eight genes, two-field
+accuracy is 495/509 (97.25%); strict four-numeric-field accuracy is 163/323
+(50.46%). At four fields, 317/323 eligible genotypes are resolved; the six
+unresolved genotypes count as incorrect. Two-field truth requires exact CDS
+identity, and four-field truth exact genomic identity for both haplotypes.
+Expression suffixes are ignored in the four-numeric-field endpoint. Ambiguous
+predictions must satisfy the scorer's strict matching rule. These resolutions
+use different eligible subsets and should not be treated as a matched-subset
+comparison. The evaluation donors and known families are excluded from panel
+references. The cohort includes prospectively reserved validation donors;
+prior assembly availability is documented in the evaluation protocol.
+
+The separate Gourraud experimental-truth cohort has 946 donors, zero graph-donor
+or known-family overlap, and five HLA genes. T1K completed 945 runs; one audited
+terminal failure contributes zero correct credit. Two-field accuracy is
+4,437/4,723 (93.94%). Experimental truth supports two fields only; four-field
+accuracy is unavailable. A, B, C, DRB1 and DQB1 are evaluated.
+
+The slide totals were independently recomputed from T1K per-gene score rows.
+All 64 assembly-cohort and 945 experimental-cohort raw T1K output hashes matched
+the frozen provenance. Sources: hla-spechla-pg/series20260918/analysis and its
+gourraud subdirectory in the analysis repository. T1K-only score snapshots and
+the compact summary are included in data/ beside this deck.

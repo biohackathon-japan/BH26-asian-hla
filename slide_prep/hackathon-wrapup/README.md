@@ -1,9 +1,9 @@
 # BioHackathon wrap-up
 
-[Slides (PDF)](slides.pdf) · [PowerPoint for import](slides.pptx) · [Source](slides.tex) · [Speaker notes](speaker-notes.md)
+[Slides](slides.pdf) · [Source](slides.tex) · [Speaker notes](speaker-notes.md)
 
 Three slides: graph construction, paired SV/SNV improvement over HPRC, and
-Dawn's DogoHLA illustration. White backgrounds and scientific labels keep the
+Dawn's DogoHLA illustration with a T1K independent-evaluation table. White backgrounds and scientific labels keep the
 focus on the graphs and comparison. Non-Asian variant recovery is explicitly
 marked **Not yet evaluated**.
 
@@ -44,6 +44,7 @@ limits are in the speaker notes. The DogoHLA PNG is copied unchanged from
 ![Slide 2](render/slide-2.png)
 ![Slide 3](render/slide-3.png)
 
-The PowerPoint copy contains high-resolution slide images and speaker notes,
-for importing into shared presentation tools. Edit scientific text in the
-LaTeX source and regenerate; the PowerPoint slide artwork is flattened.
+T1K table totals are frozen in `data/t1k_independent_summary.tsv`; the two
+T1K-only per-gene snapshots support recomputation. The 64-donor assembly
+cohort provides two- and four-field truth; the 946-donor experimental cohort
+provides two-field truth only. Detailed scoring rules are in speaker notes.

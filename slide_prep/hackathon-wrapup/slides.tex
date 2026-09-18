@@ -45,7 +45,21 @@ CPC & China & 58\\\bottomrule
 \end{tikzpicture}
 \end{frame}
 \begin{frame}[plain]
-\centering
-\includegraphics[width=8.5cm,height=8.5cm,keepaspectratio]{figures/dogohla-logo.png}
+\begin{tikzpicture}[remember picture,overlay,x=1cm,y=1cm,shift={(current page.south west)}]
+\node[anchor=north west,inner sep=0] at (.25,7.5) {\includegraphics[width=5.2cm]{figures/dogohla-logo.png}};
+\txt{5.8}{7.85}{9.6}{ink}{19}{T1K: independent evaluation};
+\txt{5.8}{7.12}{9.6}{muted}{10}{Correct diploid HLA genotypes / eligible truth};
+\node[anchor=north west,inner sep=0,text=ink,font=\fontsize{10}{14}\selectfont] at (5.8,6.4) {\begin{tabular}{@{}lrr@{}}\toprule
+Truth cohort & Two fields & Four fields\\\midrule
+Assembly, 64 donors & 97.2\% & 50.5\%\\
+ & 495/509 & 163/323\\[10pt]
+Experimental, 946 donors & 93.9\% & Unavailable\\
+ & 4,437/4,723 & \\\bottomrule
+\end{tabular}};
+\txt{5.8}{2.95}{9.4}{muted}{9}{Assembly cohort: 16 donors each from East Asian, South Asian, European and African strata; eight HLA genes.};
+\txt{5.8}{2.05}{9.4}{muted}{9}{Experimental cohort: Gourraud, five HLA genes; two-field truth only. One failed donor remains in the denominator.};
+\txt{5.8}{1.10}{9.4}{muted}{8}{IPD 3.65. Failed and unresolved calls count as incorrect; eligible truth subsets differ by resolution.};
+\foot{3}
+\end{tikzpicture}
 \end{frame}
 \end{document}
