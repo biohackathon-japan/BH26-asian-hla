@@ -1,6 +1,6 @@
-<p align="center"><img src="assets/dogohla-logo.png" alt="DōgoHLA logo" width="320"></p>
-
 # DōgoHLA and AsianPGR
+
+<p align="center"><img src="assets/dogohla-logo.png" alt="DōgoHLA logo" width="320"></p>
 
 **DōgoHLA** is a population-specific, pangenome-based method for reconstructing
 HLA gene sequences from short reads. **AsianPGR** is the Asian- and Arab-enriched
