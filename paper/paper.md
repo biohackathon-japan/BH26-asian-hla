@@ -1,26 +1,14 @@
 ---
-title: 'Building an HLA Typer Using Asian-Specific Pangenomes'
-title_short: 'BH26JP: Asian-pangenome HLA typer'
+title: 'Evaluating Asian-specific pangenomes for HLA typing'
+title_short: 'BH26JP: Asian pangenomes for HLA typing'
 tags:
   - Pangenomics
   - HLA
   - Population genetics
   - Genome assembly
   - Genotyping
-authors:
-  - name: First Author
-    affiliation: 1
-    role: Writing – original draft
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
-    affiliation: 2
-    role: Conceptualization, Writing – review & editing
-affiliations:
-  - name: First Affiliation
-    index: 1
-  - name: ELIXIR Europe
-    ror: 044rwnt51
-    index: 2
+authors: []
+affiliations: []
 date: 18 September 2026
 cito-bibliography: paper.bib
 event: BH26JP
@@ -32,325 +20,422 @@ group: asian-hla
 git_url: https://github.com/biohackathon-japan/BH26-asian-hla
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: First Author \emph{et al.}
+authors_short: ""
 ---
+
+# Abstract
+
+Human leukocyte antigen (HLA) typing from short reads requires distinguishing closely related
+genes and resolving highly polymorphic alleles. Pangenomes provide complete haplotype sequences
+that can complement allele databases, but their usefulness depends on how those sequences enter
+the typing method. At BioHackathon Japan 2026, we constructed a 754-haplotype major
+histocompatibility complex (MHC) panel enriched for Asian and Arab donors and evaluated several
+ways to use it. In 40 East and South Asian donors, PanGenie with the full panel recovered more
+assembly-derived genotypes containing structural variation than an HPRC-only panel after we
+corrected a filter that discarded sites with missing training genotypes. The gains were 3.89 and
+1.97 percentage points in the two strata. For named HLA genotypes, Locityper with the full panel
+matched 31 of 39 eligible experimental genotypes, compared with 28 for HPRC-only, 34 for T1K and
+36 for SpecHLA. We also developed DōgoHLA, an extension of SpecHLA that combines panel-assisted
+read collection, repaired phasing and guarded reconstruction of graph-supported noncoding indels.
+In eight development donors, exact whole-gene reconstructions increased from 36 to 57 of 128
+haplotypes. These experiments identify reference representation, callable-site retention and
+haplotype reconstruction as distinct determinants of HLA typing performance. Evaluation on new
+donors and independently constructed graphs is the next step.
 
 # Introduction
 
-The HLA/MHC region on chromosome 6 is the most polymorphic part of the human genome and the
-single most important genomic determinant of transplant compatibility, drug hypersensitivity and
-autoimmune and infectious-disease risk. Existing HLA genotyping tools — HLA\*LA
-[@Dilthey2019HLALA], T1K [@Song2023T1K], SpecHLA [@DeepOmicsSpecHLA] and others — were developed
-and tuned mostly against reference panels (GRCh38, CHM13, HPRC) that are enriched for European,
-African and admixed American ancestries. Middle Eastern and East/Southeast Asian populations are
-comparatively under-represented, even though HLA allele and haplotype frequencies are strongly
-population-specific. A recent deep long-read study of the non-classical class I genes in 531
-Japanese individuals [@ItoNaito2026] names this under-representation explicitly as an open problem
-in the field.
+Human leukocyte antigen (HLA) genes encode molecules that present peptides to the immune system.
+HLA variation contributes to transplant compatibility and susceptibility to immune-mediated disease.
+Allele frequencies vary among populations, making population representation relevant to the design
+and evaluation of HLA reference resources [@Gourraud2014]. The major histocompatibility complex
+(MHC) also contains duplicated genes and structural variation. An HLA typing method must assign
+reads to the correct locus, distinguish the two inherited alleles and, for full-sequence typing,
+reconstruct each allele across coding and noncoding regions.
 
-At BioHackathon Japan 2026 our goal was to build an HLA genotyping method specifically informed by
-an Asian- and Arab-enriched pangenome — in spirit close to SpecHLA's approach of typing against a
-personalized/graph-derived reference rather than a single linear one, but built on our own
-pangenome graph rather than SpecHLA's. Over the course of the week we (1) assembled and extended an
-Asian- and Arab-enriched HLA haplotype panel to 754 haplotypes; (2) built a whole-MHC
-Minigraph-Cactus pangenome graph from it; (3) tested a first, direct way of using that graph for
-genotyping — align, call variants, phase, take a consensus, then annotate — against an established
-direct-read typer (T1K) and real experimental truth, to learn where a naive graph-based approach
-helps and where it does not; and (4) used what we learned to start building the actual typer: a
-PanGenie-based genotyper that calls graph bubbles directly from short reads without going through an
-explicit consensus step, evaluated so far on an initial cohort of East and South Asian 1000 Genomes
-donors. Parts of this are complete and validated; the typer itself is still in progress, and we
-report its status honestly alongside the completed pieces below.
+Existing methods address different parts of this problem. HLA\*LA projects read alignments onto a
+population reference graph to infer HLA types [@Dilthey2019HLALA]. T1K estimates HLA and KIR
+allele abundances from reads aligned to allele references [@Song2023T1K]. SpecHLA assigns reads
+to HLA loci, uses local assembly to improve alignment in divergent regions, and phases variants
+to reconstruct diploid gene sequences [@DeepOmicsSpecHLA]. Pangenome methods provide a
+complementary use of assembled haplotypes: PanGenie combines k-mer counts with a reference
+haplotype panel to genotype variants [@Ebler2022PanGenie], while Locityper selects pairs of
+locus haplotypes using read alignment and depth [@Prodanov2025Locityper]. These approaches
+make the choice of reference sequences and their representation part of the inference problem.
+A larger panel can add informative alleles while also changing which sites remain callable.
+
+We investigated how an MHC panel enriched for Asian and Arab haplotypes can support HLA typing.
+First, we combined assemblies and graph-derived sequences from several pangenome projects,
+annotated HLA genes and constructed a whole-MHC graph. We then compared a graph-consensus
+pipeline with direct-read typing and evaluated full and HPRC-only reference panels in 40 East
+and South Asian donors. We assessed graph-variant recovery, named HLA genotypes and RCCX/C4
+structural signatures as separate outcomes. Finally, we developed DōgoHLA, a SpecHLA extension
+that uses the panel for read collection and selected structural reconstruction. This report
+presents the completed panel comparisons and eight-donor development results; the prospective
+DōgoHLA extension was ongoing at the analysis cutoff on 18 September 2026. The project repository is <https://github.com/leechuck/pangenome-bh26>; the appendix
+identifies the working analysis artifacts and their deposit status.
 
 # Methods
 
-## An Asian- and Arab-enriched HLA haplotype panel (754 haplotypes)
+## Haplotype panel and sequence annotation
 
-We extended our original 610-haplotype panel (APR 106, HPRC r2 464, JaSaPaGe Saudi 18 + Japanese 20,
-GRCh38, CHM13) with 144 more haplotypes contributed by two additional pangenome projects whose raw
-assemblies are not yet public: K-PanRef, a Korean pangenome (28 haplotypes, 14 individuals)
-[@Shin2026KPanRef], and CPC, the Chinese Pangenome Consortium Phase 1 resource (116 haplotypes, 58
-individuals) [@Wang2026CPC]. Because neither project has released per-sample assembly FASTAs, their
-MHC sequences were instead pulled directly out of *their own* published Minigraph-Cactus graphs: for
-K-PanRef, every haplotype path was extracted from the GBZ with `vg paths -F`; for CPC, the CHM13
-chr6:28–34 Mb reference nodes were extracted with `odgi`, and the span of every CPC haplotype walk
-through those nodes was read from the GFA. In both cases, extracted segments were kept only if they
-had a minimap2 asm20 alignment of at least 50 kb of matching bases and MAPQ ≥ 20 against the GRCh38
-MHC. Three CPC samples that are also HPRC individuals were not added twice. This gives 754
-haplotype entries in total (Table \ref{tableCohorts}); after removing the two single-haplotype
-references and five duplicate donor-assembly pairs (see below), 742 haplotypes from 371
-name-reconciled donors remain for donor-level analyses. **Caveat:** K-PanRef and CPC haplotypes are
-graph paths, not original assemblies — Minigraph-Cactus clips sequence unaligned to the graph
-backbone, so haplotype-private insertions in these two cohorts can be shortened relative to the true
-assembly.
+We extended a 610-haplotype panel comprising the Arab Pangenome Reference (APR; 106 haplotypes)
+[@Nassir2025APR], HPRC release 2 (464), JaSaPaGe Saudi (18), JaSaPaGe Japanese (20), GRCh38
+and CHM13. We added 28 haplotypes from 14 K-PanRef individuals [@Shin2026KPanRef] and 116 from
+58 Chinese Pangenome Consortium (CPC) individuals [@Wang2026CPC]. These additions used paths
+from the projects' Minigraph-Cactus graphs. We extracted K-PanRef haplotype paths with
+`vg paths -F`. For CPC, we used `odgi` to identify nodes in the CHM13 chromosome 6 interval
+28–34 Mb and extracted each haplotype walk spanning those nodes. We retained segments with
+at least 50 kb of matching bases and mapping quality (MAPQ) ≥20 in a minimap2 asm20 alignment
+to the GRCh38 MHC [@Li2018minimap2]. Three CPC samples already represented in HPRC were
+excluded from the additions.
 
-HPRC r2 was additionally split into four population strata using 1000 Genomes/HPRC release 2 sample
-metadata: HPRC-Japanese (JPT, 32 haplotypes), HPRC-Jewish (HG002 only, Ashkenazi, 2 haplotypes — a
-single individual, not a population estimate), HPRC-EastAsian (CHB/CHS/CDX/KHV and HG005, 70
-haplotypes) and HPRC-Rest (360 haplotypes).
+The resulting panel contains 754 haplotype entries (Table \ref{tableCohorts}). Excluding the two
+reference entries and five duplicate donor assembly pairs gives 742 haplotypes from 371
+name-reconciled donors for donor-level analyses. Population metadata divide HPRC into Japanese
+(JPT), other East Asian (CHB, CHS, CDX, KHV and HG005), HG002 (Ashkenazi), and remaining samples.
+HG002 contributes two haplotypes from one individual. K-PanRef and CPC sequences inherit the
+clipping applied during construction of their source graphs; this can shorten private insertions.
 
-Table: Haplotypes analysed, by cohort/stratum. \label{tableCohorts}
+Table: Haplotypes in the panel, grouped by source and population stratum. \label{tableCohorts}
 
 | Cohort / stratum | Haplotypes | Population | Source |
 | --- | ---: | --- | --- |
 | APR | 106 | Arab (UAE) | Assembly |
-| HPRC r2 – Japanese | 32 | Japanese (1000G JPT) | Assembly |
-| HPRC r2 – Jewish | 2 | Ashkenazi (HG002 only) | Assembly |
-| HPRC r2 – East Asian | 70 | CHB/CHS/CDX/KHV, HG005 | Assembly |
-| HPRC r2 – Rest | 360 | Mixed | Assembly |
-| JaSaPaGe – Saudi | 18 | Arab (Saudi) | Assembly |
-| JaSaPaGe – Japanese | 20 | Japanese (1000G JPT) | Assembly |
+| HPRC r2, Japanese | 32 | Japanese (1000G JPT) | Assembly |
+| HPRC r2, HG002 | 2 | Ashkenazi, one donor | Assembly |
+| HPRC r2, other East Asian | 70 | CHB/CHS/CDX/KHV, HG005 | Assembly |
+| HPRC r2, remaining samples | 360 | Mixed | Assembly |
+| JaSaPaGe, Saudi | 18 | Arab (Saudi Arabia) | Assembly |
+| JaSaPaGe, Japanese | 20 | Japanese (1000G JPT) | Assembly |
 | K-PanRef | 28 | Korean | Graph path |
 | CPC | 116 | Chinese | Graph path |
 | GRCh38 / CHM13 | 2 | Reference | Reference |
 | **Total** | **754** | | |
 
-## Extraction and Immuannot annotation (unchanged core workflow)
+We used the Common Workflow Language workflow `hla_pangenome.cwl` to extract the extended MHC
+with pgr-tk `pgr-query` [@Chin2023pgrtk] and annotate gene structures and allele identities with
+Immuannot v3 [@Zhou2024Immuannot]. The extraction interval was GRCh38
+chr6:28,510,120–33,480,577 with 100 kb flanks. Original annotations used IPD-IMGT/HLA v3.55,
+IPD-KIR v2.13 and RefSeq C4. We regenerated per-gene sequences, pgr-tk bundle decompositions,
+and pggb/odgi graphs for the enlarged panel [@Garrison2024pggb; @Guarracino2022odgi].
+The subsequent coding-sequence audit used frozen IPD-IMGT/HLA v3.65.0 labels. Complete coding
+sequences (CDS) required valid strand and interval extraction and passed completeness checks;
+ambiguous or unmatched labels remained unresolved.
 
-The rest of the original CWL workflow (`hla_pangenome.cwl`) runs unchanged on the enlarged panel:
-per haplotype, pgr-tk `pgr-query` [@Chin2023pgrtk] extracts the extended MHC region (GRCh38
-chr6:28,510,120–33,480,577 ± 100 kb), and Immuannot v3 (IPD-IMGT/HLA 3.55, IPD-KIR 2.13, RefSeq C4)
-[@Zhou2024Immuannot] calls gene structure and allele identity. All 754 haplotypes were
-re-aggregated, per-gene sequences re-cut, and pgr-tk bundle decompositions and pggb
-[@Garrison2024pggb]/odgi [@Guarracino2022odgi] graphs rebuilt.
+## Whole-MHC graph and consensus-based typing
 
-## Whole-MHC Minigraph-Cactus pangenome graph
+We built a whole-MHC graph from all 754 entries with Cactus v3.3.0 and the Minigraph-Cactus
+algorithm [@Hickey2024MinigraphCactus], using GRCh38 and CHM13 as reference paths. The command
+requested clipped and full GFA/GBZ graphs, Giraffe indexes, VCF, full odgi output and
+visualisations. The build used 32 cores and 240 GB on the NIG supercomputer. We assessed mapping
+on MHC-recruited short reads from HG00096 using vg Giraffe v1.76.1 with eight threads
+[@Siren2021Giraffe].
 
-We built a single whole-MHC pangenome graph from all 754 haplotypes with `cactus-pangenome`
-(Cactus 3.3.0 static release; Minigraph-Cactus algorithm [@Hickey2024MinigraphCactus]), referenced
-against both GRCh38 and CHM13, with `--gfa clip full --gbz clip full --giraffe clip --vcf --odgi
-full --viz`. The build ran on the NIG supercomputer (32 cores, 240 GB) in 3 h 43 min and produced a
-graph of 417,896 nodes and 579,137 edges (5.89 Mb of sequence), with vg Giraffe indexes for short-read
-alignment [@Siren2021Giraffe].
+For an initial typing comparison, we aligned 1000 Genomes reads with Giraffe, called variants
+with `vg call`, phased them with WhatsHap [@Patterson2015WhatsHap], and generated two haplotype
+consensus sequences with `bcftools consensus`. We annotated these sequences with Immuannot
+using IPD-IMGT/HLA v3.55.0 and v3.65.0. Two separate T1K runs provided direct-read comparisons.
+The analysis used the completed outputs available in the archived snapshot of the 2,504-sample
+cohort; 955 cohort members overlap the experimental HLA resource of Gourraud et al.
+[@Gourraud2014].
 
-**Graph validation.** We mapped one 1000 Genomes individual's (HG00096) MHC-region read pairs to the
-graph with `vg giraffe`: 654,059 of 657,052 pairs aligned (99.5%), 625,590 at MAPQ ≥ 20 (95.2%), in
-26 s on 8 threads. This establishes that the graph is mappable to at high rates; it does not by
-itself establish that alignment to the graph improves genotyping, which we tested directly next.
+We compared unordered allele pairs at one-field and numeric two-field resolution. Pairwise
+comparisons covered A, B, C, DRA, DRB1, DQA1, DQB1, DPA1 and DPB1; comparisons with experimental
+typing covered A, B, C, DRB1 and DQB1. We removed Immuannot's unresolved `:new` suffix before
+truncating names and included only calls with sufficient numeric fields in conditional
+concordance. Each method therefore has its own denominator in this initial analysis. For the
+assembly annotation benchmark, we retained the experimental ambiguity lists and required two
+eligible current-CDS labels per donor and locus.
 
-## Does graph-based genotyping beat a direct-read typer? A first, consensus-based attempt
+## Full versus HPRC-only panels in 40 donors
 
-As a first test of whether the new graph helps HLA typing at all, we built a pipeline that aligns
-1000 Genomes short reads to the graph with `vg giraffe`, calls variants with `vg call`, phases them
-with read-backed WhatsHap [@Patterson2015WhatsHap], takes a `bcftools consensus` hap1/hap2 FASTA per
-sample, and re-annotates that consensus with Immuannot — i.e., the graph is used to build a
-personal, phased pseudo-assembly, which is then typed exactly as the assembly panel above is typed.
-We compared this against T1K [@Song2023T1K], which types directly from the same raw reads without
-any graph or consensus step, and against real experimental truth (Gourraud et al. 2014's Sanger/SSO
-HLA typing of 1000 Genomes samples, 955 of which overlap this cohort [@Gourraud2014]). We ran two
-independent T1K invocations on the same reads as a check on typer-level noise, and re-annotated the
-same consensus sequences against both the original frozen IPD-IMGT/HLA 3.55.0 and a freshly built
-3.65.0 (the release T1K uses) to separate database-version effects from consensus-quality effects.
-Concordance was scored at 1-field (allele group) and 2-field (protein) resolution on unordered
-genotype pairs, on the 9 classical HLA genes (A/B/C/DRA/DRB1/DQA1/DQB1/DPA1/DPB1); Immuannot's
-`:new` suffix (no exact database match) was stripped before truncation rather than treated as a
-literal field, and a genotype comparison was skipped rather than counted as a mismatch when fewer
-than 2 real fields remained on either side.
+We selected 20 East Asian (EAS) and 20 South Asian (SAS) 1000 Genomes donors and assigned them
+to five population-balanced folds with known families kept together. For each fold, we excluded
+test donors, aliases and known relatives from both a full reference panel and an HPRC-only panel.
+The panels contained approximately 363 and 224–225 training donors, respectively. Both used the
+same whole-MHC graph, whose construction included the test assemblies. This design evaluates
+held-out haplotype inference conditional on a shared graph topology.
 
-## RCCX/C4 structural genotyping prototypes (exploratory, not the main typer)
+We decomposed the graph into top-level variant sites relative to GRCh38 with `vg deconstruct`
+and genotyped identical MHC-recruited reads with PanGenie v4.2.1. The initial panel builder
+removed any site with a missing training genotype. We revised this rule to retain known phased
+alleles and encode unknown alleles as missing, using PanGenie's native support for phased
+missingness. Alternate alleles entered a panel only when observed in its training haplotypes.
+Both panel arms used the revised rule and the original donor folds.
 
-In parallel, we prototyped two lightweight, held-out-validated approaches to genotype the RCCX
-module (which carries the C4A/C4B copy-number and long/short structural variation) directly from
-short reads without full HLA allele calling: a k-mer/marker-counting method matched against graph
-paths (`hla-structural/`, 106 donors: 18 pilot + 88 held out), and a dedicated 299-probe targeted
-dosage assay (`hla-targeted/`, benchmarked against the published tool C4Investigator
-[@Marin2024C4Investigator] on 24 held-out donors, with C4Investigator's own output calibrated on 18
-pilot donors before blind application to keep the comparison fair). Both used donor-level,
-family-disjoint held-out splits.
+Variant truth comprised the test donors' assembly-derived allele sequences at graph sites within
+GRCh38 chr6:28,510,121–33,480,577 (1-based, inclusive). We excluded missing, conflicting and
+non-ACGT truth and required each allele's reference span to fit the interval. A correct genotype
+required an exact match of the unordered pair of allele sequences. Missing sites and no-calls
+counted as failures in recovery across all eligible truth genotypes. An SV-bearing genotype
+contained at least one allele whose length differed from the reference by ≥50 bp; success required
+the complete bubble allele pair, including embedded small variants. We also compared pure
+single-nucleotide variant (SNV) sites shared by both original graph outputs and the published
+NYGC GRCh38 PASS callset, keeping that comparison universe fixed after the repair. The NYGC
+arm used the October 2020 filtered, phased release from joint whole-genome calling.
 
-## Classical 11-locus typing benchmark on the full panel
+To obtain named HLA genotypes, we used Locityper v1.7.4 [@Prodanov2025Locityper] on intact
+source locus sequences from the same training panels, with MHC-recruited reads and regional
+background calibration. Predictions received a numeric two-field name when their frozen exact-CDS
+labels resolved to one type. The assembly endpoint covered eight genes (A, B, C, DPA1, DPB1,
+DQA1, DQB1 and DRB1). Experimental labels supplied 39 eligible genotypes at five genes in eight
+EAS donors. T1K v1.0.6 and SpecHLA retained their frozen predictions and native databases;
+SpecHLA used IPD-IMGT/HLA v3.38.0, while T1K used the run's current-IPD reference. T1K required
+positive call quality and ambiguity that collapsed to a single numeric two-field allele.
+Unresolved predictions counted as failures. We estimated paired differences with 10,000 donor
+bootstrap resamples within each ancestry stratum, conditional on the fixed sites and folds.
+The random seed was derived from SHA256 of the analysis date (20260917), endpoint and baseline;
+intervals were unadjusted for multiple comparisons.
 
-To check that the enlarged panel and pipeline still produce reliable classical HLA calls, we
-compared Immuannot's exact-CDS two-field calls at 11 classical loci (A/B/C/DPA1/DPB1/DQA1/DQB1/
-DRB1/DRB3/DRB4/DRB5) on all eligible haplotypes of the 754-haplotype panel against the Gourraud et
-al. 2014 experimental Sanger/SSO truth at the 5 genes it covers (A/B/C/DRB1/DQB1), retaining
-published typing ambiguity and requiring two eligible current-CDS labels per donor.
+## RCCX/C4 structural typing
 
-## The typer in progress: PanGenie genotyping directly against graph bubbles
+We evaluated two short-read prototypes for the RCCX region, which contains C4A/C4B copy-number
+and long/short variation. The first fitted pairs of reference paths to sampled canonical 31-mer
+counts in 18 pilot and 88 additional donors. Markers required support in at least three training
+families, MHC locus specificity and base quality ≥20; overlapping mates contributed once per
+fragment. A correction for total-copy dosage was estimated on the 18 pilot donors and applied
+to the 88 additional donors. Calibrated ordinary reference depth supplied a simpler comparator.
+We scored coarse DRB gene-content signatures separately.
 
-The consensus-based pipeline above showed that going through an explicit per-sample consensus loses
-genotyping resolution (see Results). We are therefore building the actual typer around a different
-strategy, closer to how PanGenie [@Ebler2022PanGenie] and SpecHLA's personalized-reference approach
-avoid an explicit global consensus: genotype the graph's bubbles directly from k-mers in the raw
-short reads, per sample, without ever constructing a linear consensus sequence to re-annotate.
-Concretely: (1) `vg deconstruct` decomposes the whole-MHC graph into top-level bubbles relative to
-the GRCh38 path, giving a bubble-level VCF; (2) for 5 donor-disjoint, family-disjoint,
-population-balanced folds, we build two reference panels per fold — a "full" panel (all cohorts) and
-an "HPRC-only" panel — so that adding the Asian-specific haplotypes (APR, JaSaPaGe, K-PanRef, CPC)
-can be evaluated against an HPRC-only baseline under the same held-out design used for the RCCX/C4
-prototypes above; (3) PanGenie genotypes each held-out donor's short reads against both panels for
-its fold. The initial evaluation cohort is 40 1000 Genomes donors (20 East Asian, 20 South Asian),
-selected to be family-disjoint and population-balanced, with Arabian donors reserved for a later
-addition pending data availability. The same 40 donors' reads were also run through T1K and SpecHLA
-for comparison, following the design in our study plan (`hla-study-plan/plan.tex`), which further
-specifies HLA\*LA and a long-read SpecImmune/HLAminer arm as later additions.
+The second prototype used 299 targeted probes after development on the preceding 106 donors
+and was evaluated on 24 additional donors. Test families were excluded from probe discovery,
+training statistics and candidate paths. The probes measured C4 A/B and long/short marginal
+dosages; a reference-pair model then inferred complete structural signatures. Comparators were
+the earlier sketch, calibrated reference depth and C4Investigator [@Marin2024C4Investigator].
+C4Investigator's total-copy calibration used the 18 pilot donors. Structural truth comprised
+assembly annotations, including provisional CYP21/TNX prototype assignments.
 
-**Status at the time of writing:** panel construction (bubble VCF, 5-fold full/HPRC-only panels)
-and call generation are complete — all 120 jobs (40 donors × {T1K, SpecHLA, PanGenie-full,
-PanGenie-HPRC-only}) finished successfully with verified output integrity. Accuracy scoring against
-truth has not finished; we report the one completed sub-analysis (structural signature
-representation) below and describe the rest as ongoing work.
+## DōgoHLA development and evaluation
+
+DōgoHLA v0.1.0 extends SpecHLA v1.0.12 with panel-assisted read collection, corrected scoring of
+phase alternatives, IPD-IMGT/HLA v3.65 phase references and graph-supported reconstruction of
+selected noncoding indels. The phase repair groups scores for complementary haplotypes under
+the same phase alternative. For DRB1, we preserved reference paths in a normalised pggb graph,
+aligned reads with Giraffe and genotyped represented alleles. We decomposed confident homozygous
+graph alleles into primitive long indels with affine-gap alignment and applied eligible noncoding
+changes while preserving read-phased coding variants. Graph calls required PASS status,
+genotype and variant quality ≥20, depth ≥10 and at least five reads supporting the alternate
+allele. Candidate indels were ≥50 bp and required valid reference sequence, mappable boundaries
+and unique flanks. We also removed the fixed 11-kb DRB1 query
+crop in the naming step. Frozen thresholds and code snapshots are retained with the experiments.
+
+Development used eight fold-0 donors, with their families excluded from reference inputs.
+We compared reconstructed sequences with assembly-derived truth at eight genes per donor,
+assigning the two haplotypes to minimise total global edit distance. Exactness required a global
+whole-gene match; masked N bases counted as mismatches. We separately scored eligible two-field
+genotypes. Controls compared phasing changes, phase-reference databases, graph reconstruction
+and naming-only changes. The prospective extension froze the method before evaluation on the
+remaining 32 donors, with native SpecHLA and a DōgoHLA arm without graph reconstruction as
+comparators. This extension was incomplete at the report cutoff.
 
 # Results
 
-## The MHC still comes out complete after tripling the panel's non-HPRC diversity
+## MHC recovery and panel composition
 
-747 of 752 non-reference haplotypes reach ≥ 0.99 MHC coverage, and 720 of 752 land on a single
-segment (Figure \ref{figExtraction}). The lower-coverage tail is concentrated in the two
-graph-derived cohorts, as expected from upstream clipping: 4 CPC haplotypes (lowest 0.92) and 1
-JaSaPaGe-Saudi haplotype (0.96); all directly-assembled cohorts (APR, HPRC, JaSaPaGe-Japanese,
-K-PanRef) are at or near 1.00.
+We first assessed how much of the reference MHC interval was recovered from each input.
+Of 752 non-reference haplotypes, 747 reached ≥0.99 coverage and 720 were represented by a single
+extracted segment (Figure \ref{figExtraction}). Four CPC haplotypes and one JaSaPaGe Saudi
+haplotype had lower coverage, with minima of 0.92 and 0.96, respectively. These measurements
+quantify coverage of the GRCh38 interval. The source clipping inherited by CPC and K-PanRef
+also affects the representation of sequence outside that interval's alignment.
 
-![MHC region extraction across the 752 non-reference haplotypes of the enlarged, 9-stratum panel. Left: coverage of the GRCh38 MHC interval; numbers give haplotypes at coverage \(\geq\) 0.99. Right: number of extracted segments per haplotype. The graph-derived CPC and JaSaPaGe-Saudi cohorts show most of the incomplete/multi-segment cases. \label{figExtraction}](./figures/fig1_mhc_extraction_coverage.png)
+![MHC extraction across 752 non-reference haplotypes. Left: coverage of the GRCh38 MHC interval, with counts at coverage ≥0.99. Right: extracted segments per haplotype. CPC and JaSaPaGe Saudi contain the five lower-coverage haplotypes; CPC and K-PanRef are the graph-derived input cohorts. \label{figExtraction}](./figures/fig1_mhc_extraction_coverage.png)
 
-## Allele frequencies now separate nine strata, and the Korean/Chinese additions bring their own signal
+Allele frequencies differed among the nine source/population strata (Figure \ref{figPopulation}).
+For example, HLA-A\*11:01 occurred in 29% of CPC and 26% of other East Asian haplotypes,
+while A\*24:02 occurred in 35–41% of the Japanese strata. These are frequencies among sampled
+panel haplotypes. At DRB1, 57–79% of annotated copies across strata lacked an exact full-length
+match to IPD-IMGT/HLA v3.55, motivating the subsequent current-database and CDS audits.
 
-Immuannot calls on the 9-stratum panel (Figure \ref{figPopulation}) place the two new cohorts
-sensibly alongside the others: HLA-A\*11:01 reaches 29% in CPC-Chinese and 26% in other-East-Asian
-haplotypes, HLA-DRB1\*12:02 16% in CPC-Chinese, alongside the previously seen A\*24:02 (35–41% in
-Japanese strata) and DRB1\*03:01 (18% in APR). DRB1 remains the gene with the largest gap between
-assembled sequence and the allele database: 57–79% of DRB1 gene copies have no full-length match in
-IPD-IMGT/HLA 3.55 across all nine strata.
+![HLA annotations across nine strata. Top: HLA-A, HLA-B and HLA-DRB1 allele frequencies. Bottom: secondary DRB genes, C4A/C4B long/short forms and the fraction of copies lacking a full-length database match. The HPRC-Jewish column contains HG002 alone. \label{figPopulation}](./figures/fig2_population_hla.png)
 
-![HLA allele landscape across the 752 assembled/graph-derived haplotypes, now split into 9 cohorts/strata (HPRC r2 divided by population). Top: HLA-A/-B/-DRB1 frequencies. Bottom: secondary DRB gene, C4A/C4B long/short form, and fraction of gene copies absent from IPD-IMGT/HLA 3.55. The HPRC-Jewish column is a single individual (HG002) and not a population estimate. \label{figPopulation}](./figures/fig2_population_hla.png)
+We used external 1000 Genomes SNP calls to distinguish near-homozygosity from duplicated
+assembly content (Figure \ref{figHomozygosity}). NA18976 and NA19909 carried fewer than 100
+heterozygous SNPs per 100 kb across the MHC, supporting near-homozygosity. In contrast,
+NA18952 had heterozygous read-derived calls across the region but only ten substitutions between
+its two JaSaPaGe haplotypes. This supports duplication of one haplotype during assembly; the
+donor-level panel retained the HPRC assembly for this individual.
 
-## Two individuals are genuinely MHC-homozygous; one assembly holds the same haplotype twice
+![MHC heterozygosity from 1000 Genomes data compared with assembly haplotypes. Low external heterozygosity supports near-homozygosity in NA18976 and NA19909; discordance between external heterozygosity and the two JaSaPaGe sequences identifies NA18952 for assembly QC. \label{figHomozygosity}](./figures/fig3_mhc_homozygosity.png)
 
-This finding is unchanged by the panel expansion, since it concerns specific HPRC/JaSaPaGe
-individuals (Figure \ref{figHomozygosity}): NA18976 and NA19909 carry fewer than 100 heterozygous
-1000G SNPs per 100 kb across the 5 Mb MHC — assembly-independent evidence of genuine near-homozygosity
-— while JaSaPaGe's assembly of NA18952 shows full heterozygosity on *both* "haplotypes" and only 10
-substitutions between them, confirming the same true haplotype was assembled twice (traced to a
-shared contig name with the public HPRC assembly of the same person).
+## Coding-sequence audit and experimental HLA concordance
 
-![MHC homozygosity and haplotype-duplication check using 1000G data external to the assemblies. \label{figHomozygosity}](./figures/fig3_mhc_homozygosity.png)
+We checked assembly-derived HLA labels against current database sequences and experimental
+typing. HG02717's HLA-DQB1 sequence, previously labelled as a candidate new allele, matched
+registered DQB1\*02:180. The NA20346 HLA-DPA1 candidate had local support from 24 of 51 reads in the
+initial analysis. The broader complete-CDS audit identified 47 distinct protein
+candidates absent from the frozen IPD-IMGT/HLA v3.65.0 database. Three candidates, NA18620
+HLA-C and HG02976 and NA19159 HLA-DRB1, had at least five supporting fragments at each tested
+distinguishing SNP. These observations support the tested local bases; full-allele phasing and
+orthogonal sequence validation remain steps in candidate assessment.
 
-## A correction, and one genuinely novel coding allele left standing
+Current exact-CDS labels agreed with the Gourraud experimental genotypes in 62/64 HLA-A,
+64/64 HLA-B, 58/63 HLA-C, 59/63 HLA-DRB1 and 58/61 HLA-DQB1 comparisons. Ten of the
+14 discrepancies had possible antigen-binding-exon compatibility under frozen G-group
+definitions. Among the remaining four, NA18943 A/DRB1 and NA19007 A had independent local
+read or cross-assembly support for the assembly bases; NA18608 DRB1 remained unresolved because
+several probes were non-unique. A complementary comparison between FuFiHLA
+[@Hu2026FuFiHLA] and Immuannot assessed agreement of annotations on the same assemblies
+(Figure \ref{figTypingConcordance}). Together, these analyses establish the eligible sequence
+labels and identify discrepancies for further review.
 
-Re-checking the ten classical-gene `:new` candidate alleles against the current IPD-IMGT/HLA 3.65
-release resolved one of them: HG02717's HLA-DQB1 Ala→Asp change, previously reported as novel and
-independently read-supported, is in fact an exact match to DQB1\*02:180:02 (registered in release
-3.56) — the same allele the independent HPRC 4-field truth set of Lai et al. 2024 calls for this
-sample. NA20346's HLA-DPA1 Ala→Met change remains novel under 3.65, still backed by 24 of 51 of the
-individual's own 1000G reads (Figure \ref{figNovel}).
+![Agreement between FuFiHLA, Immuannot and T1K at one- to four-field resolution on overlapping assembled donors. Denominators depend on the method pair, locus and available resolution. \label{figTypingConcordance}](./figures/fig7_typing_concordance.png)
 
-![Candidate novel coding alleles and their support, rechecked against IPD-IMGT/HLA 3.65. \label{figNovel}](./figures/fig4_novel_coding_alleles.png)
+## Graph-consensus typing resolves a limited subset of eligible genotypes
 
-## The graph-consensus pipeline is as accurate as a direct-read typer, but resolves far fewer genotypes
+The whole-MHC graph contained 417,896 nodes and 579,137 edges, representing 5.89 Mb of sequence,
+and took 3 h 43 min to construct. In the HG00096 mapping test, 654,059 of 657,052 read pairs
+aligned (99.5%), including 625,590 at MAPQ ≥20 (95.2%), in 26 s. This established a working
+mapping resource for the typing experiments.
 
-This is the key methodological result for the typer we are building. Immuannot's old and new
-database re-annotations of the same graph-derived consensus agree closely with each other (91% at
-1-field, 89% at 2-field, pooled over the 9 classical genes; Figure \ref{figGraphOverall}) — expected,
-since only the reference database changed. T1K agrees with either Immuannot re-annotation only about
-half the time at 2-field (49–50%), confirmed to be a real, reproducible gap by a second, fully
-independent T1K run rather than an artefact of one invocation (80% concordance between the two T1K
-runs on the same 9 genes). HLA-DRB1 concordance collapses to 10–25% in *every* pairwise comparison,
-including old-DB-vs-new-DB on the identical consensus sequence — implicating consensus/phasing
-quality at this paralog-rich locus, not database version or typer choice.
+We then compared HLA calls from graph-derived consensus sequences with direct-read calls.
+Pairwise agreement varied with method, locus and resolution (Figure \ref{figGraphOverall}).
+The two database annotations of identical consensus sequences also differed, particularly at
+DRB1, showing that allele designation depends on the database as well as the reconstructed
+sequence. These comparisons motivate separate evaluation of sequence reconstruction and naming.
 
-![Pairwise typing concordance between the graph-consensus pipeline (Immuannot, two database versions) and a direct-read typer (T1K, two independent runs), pooled over 9 classical HLA genes. \label{figGraphOverall}](./figures/fig5_gc_overall_concordance.png)
+![Pairwise HLA genotype agreement between two T1K runs and Immuannot annotations of graph-derived consensus sequences using two database releases. The plotted comparison pools nine HLA genes. \label{figGraphOverall}](./figures/fig5_gc_overall_concordance.png)
 
-Checked against real experimental truth (Figure \ref{figGraphTruth}), T1K and the graph-consensus
-pipeline are statistically tied on accuracy when the latter actually commits to an answer: 98.8%
-(T1K, n = 1,843 checkable genotypes) vs. 98.5% (Immuannot on graph consensus, either database
-version, n = 613). The gap is in *resolution*, not correctness: the graph-consensus pipeline only
-reaches a checkable 2-field call for 33% of eligible genotypes, against T1K's 90%. **This is why we
-are not simply scaling up the consensus-based approach**: going through a single per-sample
-consensus sequence costs coverage on exactly the genes (DRB1 above all) that most need a
-population-specific reference, which is the opposite of what this project is for. It directly
-motivates genotyping graph bubbles per-sample with PanGenie instead of collapsing to one consensus
-(Methods, "The typer in progress").
+Against experimental typing, T1K had 98.8% genotype concordance among 1,843 checkable calls,
+the separate T1K run had 96.5% among 4,308, and each Immuannot database annotation
+had 98.5% among 613 checkable calls
+(Figure \ref{figGraphTruth}). The archived analysis reports two-field resolution for approximately
+90% of T1K's eligible calls and 33% of the graph-consensus calls. These conditional concordances
+refer to method-specific subsets. The practical finding is the larger number of resolved genotypes
+from T1K, which motivated evaluation of alternative uses of the haplotype panel.
 
-![Genotype concordance against real published truth (Gourraud et al. 2014, 2-field, 5 classical genes): T1K and the graph-consensus pipeline are tied on accuracy but resolve very different fractions of eligible calls. \label{figGraphTruth}](./figures/fig6_gc_truth_concordance.png)
+![Conditional two-field concordance with published experimental typing at five genes. Each bar uses that method's resolved calls: 1,843 for the pipeline T1K run, 4,308 for the separate T1K run and 613 for each Immuannot annotation. \label{figGraphTruth}](./figures/fig6_gc_truth_concordance.png)
 
-## RCCX/C4 structural prototypes did not beat trivial baselines
+## Retaining callable sites improves recovery with the full panel
 
-Both held-out-validated prototypes for RCCX/C4 structural genotyping were informative but did not
-demonstrate a benefit from graph structure over simpler baselines. The marker-counting prototype
-recovered RCCX gene content trivially (106/106, as expected — DRB copy number is easy) but only
-38–64 of 106 full structural-signature pairs correctly, and calibrated plain reference read depth
-tied its best copy-number variant, so no graph-specific benefit was established. The targeted
-299-probe assay matched but did not beat a plain-depth baseline on total C4 dosage (24/24 for both)
-and scored 21/24 on full RCCX structural pairs — slightly worse than a pre-existing simpler method's
-22/24. We report this as a genuine, disclosed negative result rather than omit it: it shows that
-RCCX/C4 structure is genuinely hard to call from short reads regardless of method, which is useful
-context for anyone else building an HLA/MHC structural typer on this or similar panels.
+The initial PanGenie analysis exposed a loss of callable sites when the panel builder required
+complete training genotypes. Allowing phased missing alleles restored 19,043–19,072 sites per
+fold in the full panel and 221–227 in HPRC-only. Every previously retained site remained, and
+every repaired HPRC-only site was present in the repaired full panel.
 
-## Classical calls on the enlarged panel remain concordant with real truth
+With missing sites and no-calls counted as failures, the repaired full panel recovered more
+SV-bearing assembly genotypes than repaired HPRC-only in both ancestry strata
+(Table \ref{tableVariants}). The paired gain was 3.89 percentage points in EAS (95% donor
+bootstrap interval 2.40–5.29) and 1.97 points in SAS (0.32–3.47). This supports the use of
+additional reference haplotypes for exact bubble-genotype recovery within the shared graph.
 
-Against Gourraud et al. 2014, exact-CDS two-field calls on the full 754-haplotype panel agree with
-experimental truth at 62/64 (HLA-A), 64/64 (HLA-B), 58/63 (HLA-C), 59/63 (HLA-DRB1) and 58/61
-(HLA-DQB1). Of the 14 discrepancies, 10 are compatible with the historical assay's antigen-binding-exon
-resolution under frozen G-group definitions, and of the 4 remaining, 3 have independent read or
-cross-assembly support for the assembly's own call (NA18943 A/DRB1, NA19007 A); one (NA18608 DRB1)
-is unresolved because the relevant probes are non-unique. This benchmark, together with the
-cross-method comparison in Figure \ref{figTypingConcordance} (FuFiHLA vs. Immuannot on the same
-assemblies, 92–100% 2-field agreement across 373–376 individuals; T1K vs. either method on the 23
-assembled individuals typed by T1K so far), supports that the extraction+annotation pipeline itself
-remains reliable at the enlarged scale — the resolution problem identified above is specific to the
-graph-consensus arm, not to Immuannot or the panel in general.
+Table: Exact recovery of SV-bearing diploid bubble genotypes after callable-site repair. \label{tableVariants}
 
-![Typing concordance between FuFiHLA, Immuannot and T1K on the same assembled individuals, at 1–4 field resolution. \label{figTypingConcordance}](./figures/fig7_typing_concordance.png)
+| Stratum | Eligible genotypes | HPRC-only | Full panel |
+| --- | ---: | ---: | ---: |
+| EAS | 1,465 | 1,060 (72.35%) | 1,117 (76.25%) |
+| SAS | 1,577 | 1,188 (75.33%) | 1,219 (77.30%) |
 
-## The PanGenie-based typer: infrastructure complete, accuracy scoring in progress
+On the fixed 1,007,636 shared SNV comparisons per stratum, concordance was 99.8217% for the
+full panel, 99.7749% for HPRC-only and 99.6907% for the published linear callset in EAS;
+the corresponding SAS values were 99.8272%, 99.8039% and 99.6405%. The full-minus-HPRC
+paired intervals were 0.0148–0.0828 percentage points in EAS and −0.0060–0.0573 in SAS.
+These small shared-site differences complement the larger recovery gains from retaining
+previously omitted sites.
 
-Bubble-level panel construction (5 folds × {full, HPRC-only} arms) and call generation for the
-initial 40-donor East + South Asian cohort are complete: all 120 jobs (T1K, SpecHLA, PanGenie-full,
-PanGenie-HPRC-only, per donor) finished successfully with verified output integrity (matching file
-counts and record counts for all outputs, including 3,250,704 VCF records from the full-panel
-PanGenie arm vs. 3,504,632 from the HPRC-only arm). Accuracy scoring against truth has not been run
-yet and is explicitly future work (see Discussion). One sub-analysis is complete and worth reporting
-now, honestly, as a null result: for the RCCX and DRB structural signature classes present among
-these 40 donors, the full panel and the HPRC-only panel represent exactly the same classes (100/100
-for DRB, 95/100 for RCCX) — the 144 Asian-specific graph-derived haplotypes added no additional
-*represented* structural diversity for this particular set of held-out donors. This does not mean
-the Asian-specific haplotypes are uninformative in general (the population allele-frequency results
-above show clear population-specific signal); it means that, at least for this initial cohort and
-this particular representation metric, we have not yet demonstrated the benefit we are looking for,
-and accuracy scoring — not representation counting — is the test that will actually tell us if the
-Asian-specific panel helps.
+## Named HLA performance depends on the reference and truth source
+
+We evaluated whether the expanded panel also improved named HLA genotypes. An initial
+whole-locus PanGenie representation produced predominantly unresolved calls because its marker
+selection left few informative k-mers shared across complete alleles. Locityper provided a
+usable locus-haplotype inference method for the same panels. With Locityper, the full panel
+recovered more eligible HLA genotypes than HPRC-only on both assembly-derived and experimental
+labels (Table \ref{tableHLA}).
+
+Table: Exact unordered numeric two-field genotypes. No-calls count as failures. Experimental truth covers five loci in eight EAS donors; assembly truth covers eight loci in 20 donors per stratum. \label{tableHLA}
+
+| Method | Experimental EAS | Assembly EAS | Assembly SAS |
+| --- | ---: | ---: | ---: |
+| Full panel + Locityper | 31/39 | 137/159 | 143/160 |
+| HPRC-only + Locityper | 28/39 | 134/159 | 139/160 |
+| T1K | 34/39 | 134/159 | 120/160 |
+| SpecHLA | 36/39 | 126/159 | 110/160 |
+
+SpecHLA had the highest concordance on the experimental endpoint. The full panel's gain over
+HPRC-only was 7.69 percentage points, with a paired donor interval of −2.78 to 20.00. The
+assembly-derived endpoint favoured full-panel Locityper, with smaller gains over HPRC-only:
+1.89 points in EAS (−1.87 to 5.66) and 2.50 in SAS (0.00 to 5.62). The truth-source audit
+found compatible historical and current assembly labels in 36 of 38 overlapping eligible
+genotypes, with two DRB1 disagreements. The differing method rankings therefore need to be
+interpreted with the endpoint and reference database specified.
+
+## C4 dosage is more readily recovered than complete structural pairs
+
+The first structural prototype recovered coarse DRB gene content in all 106 donors. Its
+uncorrected RCCX path and binary-marker variants recovered 38/106 and 64/106 complete
+structural pairs, respectively. After pilot-only dosage calibration, the corrected method
+recovered total copy number in 88/88 additional donors and complete signature pairs in 73/88.
+Calibrated ordinary reference depth also recovered total copy number in 88/88.
+
+In the subsequent 24-donor experiment, the targeted assay, calibrated reference depth and
+pilot-calibrated C4Investigator each recovered total C4 copy number in 24/24 donors.
+The targeted assay recovered 21/24 complete structural pairs, compared with 22/24 for the
+earlier sketch. These results distinguish accurate total dosage from the more difficult
+assignment of C4 forms to complete reference structures. The observed errors involved incorrect
+A/B dosage, ambiguous linkage between A/B and long/short forms, and a structure absent from
+the reference panel.
+
+## DōgoHLA improves whole-gene reconstruction in development donors
+
+We next tested changes to phasing and sequence reconstruction within SpecHLA. Across the eight
+development donors, the selected DōgoHLA candidate increased exact whole-gene matches from
+36/128 in the saved native SpecHLA runs to 57/128. Total global edit distance decreased from
+97,965 to 75,634 (22.8%), and correct two-field genotypes increased from 61/63 to 62/63.
+Edit distance improved in all eight donors. These values use global whole-gene alignment
+throughout.
+
+The controls localised the improvements. With panel-assisted read collection held fixed,
+complete phasing repair and updated phase references increased exact matches from 43/128 to
+57/128. Adding panel sequences to the phase-reference database left exactness at 57/128.
+The final guarded graph-indel step reduced total edit distance from 76,924 to 75,634 while
+retaining 57/128 exact sequences and 62/63 correct genotypes. The reduction came from supported
+noncoding DRB1 insertions in two donors. An earlier whole-block replacement had overwritten
+coding differences and reduced two-field correctness to 60/63; decomposing supported changes
+into eligible noncoding indels preserved the read-phased coding alleles. The selected method
+therefore combines phasing repair with a narrower structural reconstruction step. Its prospective
+32-donor extension will assess these choices with the method fixed before inference.
 
 # Discussion
 
-Three things are real and usable now: an Asian- and Arab-enriched HLA haplotype panel that has
-essentially tripled in non-HPRC diversity since our first week (754 haplotypes, 9 population strata,
-extending to Korean and Chinese cohorts via their own pangenome graphs where raw assemblies are not
-yet public); a whole-MHC Minigraph-Cactus graph built from that panel with validated short-read
-mapping; and a rigorous demonstration of *why* the obvious first way to use that graph for typing —
-align, call, phase, consensus, annotate — does not beat an existing direct-read typer (T1K) on
-accuracy, and specifically loses resolution at exactly the paralog-rich loci (DRB1 above all) that
-most need a better reference. That negative result is not a detour from the goal of "building a
-better HLA typer using pangenomes" — it is the finding that redirected the typer's design away from
-an explicit consensus step and toward genotyping graph bubbles directly with PanGenie, closer to how
-SpecHLA avoids a single global reference. That typer is still in progress: the bubble-panel
-infrastructure and initial 40-donor (East + South Asian) call generation are done and verified, but
-accuracy scoring against real truth — the actual test of whether the Asian-specific panel produces
-better HLA calls than an HPRC-only one — has not been completed and is the immediate next step. We
-plan to report those numbers as a follow-up once scoring finishes; readers should treat "the typer"
-as a documented work-in-progress here, not a finished, benchmarked method. The two RCCX/C4 structural
-genotyping prototypes we built alongside this work, and reported honestly as not beating trivial
-baselines, are a related but separate exploration, useful mainly as evidence that RCCX/C4 structure
-is hard to call from short reads regardless of approach.
+We constructed an MHC panel enriched for Asian and Arab haplotypes and evaluated how its
+sequences contribute to variant genotyping, named HLA typing and gene reconstruction. The
+strongest evidence for the full panel came from recovery of SV-bearing assembly genotypes after
+callable-site repair. This result connects reference diversity to an implementation requirement:
+added haplotypes are useful only when the panel representation preserves the sites at which they
+can contribute evidence. The smaller and less certain named-HLA gains also show why variant
+recovery and allele designation require separate evaluation.
 
-Immediate next steps, in order: (1) finish accuracy scoring of the 40-donor PanGenie/T1K/SpecHLA
-comparison, full panel vs. HPRC-only, against Gourraud 2014 and any other available truth for these
-donors; (2) extend the benchmark cohort to the Arabian stratum once data access allows, per the
-original study design; (3) add HLA\*LA and the long-read SpecImmune/HLAminer arm specified in the
-study plan; (4) investigate whether K-PanRef/CPC's graph-derived (rather than assembled) haplotypes
-constrain the bubble panel less than we might expect, given the upstream-clipping caveat noted in
-Methods; (5) revisit HLA-DRB1 phasing specifically, since it is the worst-performing locus in every
-comparison we ran, including database-version-only comparisons on an identical consensus sequence.
+The comparisons build on established graph, haplotype and sequence-reconstruction methods.
+PanGenie supplied variant inference, Locityper supplied complete-locus selection, and SpecHLA
+supplied read-based reconstruction. DōgoHLA extends the last approach with panel-assisted read
+collection, repaired phasing and selected graph-supported noncoding changes. In the development
+controls, phasing repair accounted for the increase in exact whole-gene matches; the guarded
+graph step reduced residual sequence errors in two DRB1 donors. A complete paired evaluation
+of DōgoHLA and its graph ablation will quantify the contribution of that step on additional donors.
+
+The 40-donor panel comparison is conditional on a graph built with the test assemblies. The
+full panel is also larger than HPRC-only, so its observed effect combines panel size and
+composition. A size-matched augmentation experiment using graphs constructed exclusively from
+training donors would separate these effects. Experimental HLA labels are available for only
+eight EAS donors in this benchmark; additional experimental typing in SAS and Arab donors
+would extend the ancestry coverage. Harmonised allele databases and read recruitment would
+also make comparisons among typing methods easier to interpret. The published linear arm
+provides a shared-SNV comparison under its original joint-calling and filtering design.
+
+Sequence quality and truth definition impose further constraints. Graph-derived inputs inherit
+clipping, some assembly haplotypes require QC, and historical HLA labels can resolve a different
+sequence region from a complete-CDS annotation. The candidate catalogue therefore retains
+local read evidence separately from complete-allele validation. Similarly, C4 dosage and
+reference-signature imputation describe different levels of structural information. Long reads
+spanning diagnostic sites and module boundaries would provide an independent test of the
+inferred RCCX arrangements. These follow-up experiments can establish when the expanded panel
+improves inference beyond the fixed-panel comparisons reported here.
 
 ## Acknowledgements
 
-We thank the organisers of DBCLS BioHackathon Japan 2026 and the NIG supercomputer BioHackathon
-node for compute access; the Arab Pangenome Reference (MBRU) [@Nassir2025APR], K-PanRef
-[@Shin2026KPanRef], CPC [@Wang2026CPC], HPRC and JaSaPaGe project teams for making assemblies and
-pangenome graphs available; and the authors of pgr-tk [@Chin2023pgrtk], Immuannot
-[@Zhou2024Immuannot], pggb [@Garrison2024pggb], odgi [@Guarracino2022odgi], minimap2
-[@Li2018minimap2], Cactus/Minigraph-Cactus [@Hickey2024MinigraphCactus], vg/Giraffe
-[@Siren2021Giraffe], WhatsHap [@Patterson2015WhatsHap], PanGenie [@Ebler2022PanGenie], T1K
-[@Song2023T1K] and C4Investigator [@Marin2024C4Investigator], on which this work is built.
+We thank the organisers of DBCLS BioHackathon Japan 2026 and the NIG supercomputer team for
+compute access; the APR, K-PanRef, CPC, HPRC and JaSaPaGe teams for the sequence resources;
+and the developers of the annotation, graph and typing tools used in this work.
 
 # References
 
@@ -360,14 +445,28 @@ pangenome graphs available; and the authors of pgr-tk [@Chin2023pgrtk], Immuanno
 
 # Appendices
 
-Workflow, analysis scripts, full figure captions and result tables referenced in this report are in
-this project's companion repository, `pangenome-bh26` (`github.com/leechuck/pangenome-bh26`): the
-extraction/annotation workflow and its README (`hla/`), the whole-MHC graph build and its README
-(`hla/docs/MHC_GRAPH_README.md`, `hla/nig/mhc_mc_graph.sbatch`), the graph-consensus-vs-T1K
-evaluation (`hla/analysis/gc_*.py`, `hla/results/slides/gc_typing_concordance.tex`), the RCCX/C4
-structural prototypes (`hla-structural/`, `hla-targeted/`), the classical 11-locus benchmark
-(`hla-analysis/FINAL_REPORT.md`), and the PanGenie-based typer under development
-(`hla-study-plan/plan.tex`, `hla-asian50/`).
+## Analysis provenance and reproduction
+
+The companion repository (<https://github.com/leechuck/pangenome-bh26>) contains the extraction
+and annotation workflow (`hla/`), graph construction instructions
+(`hla/docs/MHC_GRAPH_README.md`), graph-consensus comparison scripts and tables
+(`hla/analysis/gc_*.py`, `hla/results/tables/gc_*.tsv`), and assembly annotation audit
+(`hla-analysis/FINAL_REPORT.md`, `hla-analysis/REPRODUCIBILITY.md`).
+In the working analysis repository, the completed 40-donor comparisons are documented in `hla-asian50/refined/REPORT.md` and
+`hla-asian50/refined/README.md`; the original analysis is retained in
+`hla-asian50/accuracy/REPORT.md`. Structural protocols, measurements and calibration are in
+`hla-structural/` and `hla-targeted/`.
+
+DōgoHLA development results and frozen code snapshots are documented in
+`hla-spechla-pg/RESULTS-2026-09-18.md` and `hla-spechla-pg/IMPLEMENTATION.md`.
+The prospective extension is specified in `hla-spechla-pg/validation/20260918/PROTOCOL.md`.
+The analysis directories retain donor manifests, exclusions, parameter settings, per-donor
+scores and machine-readable input/output checksums. Large sequence inputs and native outputs
+require restoration from the locations described in those instructions. The results in this
+report use completed analyses available at the 18 September 2026 cutoff; interim results from
+the ongoing DōgoHLA extension are excluded from the reported comparisons. Public deposit of
+the refined 40-donor report and DōgoHLA artifacts was pending at the availability check for
+this draft; their paths above identify local working artifacts.
 
 ```{=latex}
 }
