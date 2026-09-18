@@ -24,6 +24,11 @@ def main():
         path.write_bytes(data)
         records.append(dict(path=target, url=BASE+source,
                             sha256=hashlib.sha256(data).hexdigest()))
+    alias = ROOT / 'hla-spechla-pg/source/hla_nom_g.txt'
+    alias.parent.mkdir(parents=True, exist_ok=True)
+    alias.write_bytes((ROOT / FILES['wmda/hla_nom_g.txt']).read_bytes())
+    records.append(dict(path=str(alias.relative_to(ROOT)), url=BASE+'wmda/hla_nom_g.txt',
+                        sha256=hashlib.sha256(alias.read_bytes()).hexdigest()))
     (ROOT / 'nomenclature-downloads.json').write_text(json.dumps(records, indent=2)+'\n')
     print(f'Fetched {len(records)} files from IPD-IMGT/HLA v3.65.0 ({COMMIT[:8]}).')
 

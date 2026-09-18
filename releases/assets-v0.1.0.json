@@ -3,9 +3,9 @@
   "assets": [
     {
       "name": "DogoHLA-v0.1.0-source.tar.gz",
-      "bytes": 629629,
-      "sha256": "f4b2f3248862c2ccc4ba3c4eb3c9c73c46f8c1cd742875d46f81f32996d73107",
-      "members": 432,
+      "bytes": 518141,
+      "sha256": "fd4090ab7e96057cc6fa946970eec8fdbb16ade4c492d9322425fcbc310fa7d9",
+      "members": 431,
       "url": "https://bio2vec.net/data/asianpgr/v0.1.0/DogoHLA-v0.1.0-source.tar.gz"
     },
     {

@@ -4,3 +4,4 @@ workflow/hla-analysis/source/imgt/
 workflow/hla-bench/source/imgt/
 workflow/hla-spechla-pg/source/Allelelist.txt
 workflow/nomenclature-downloads.json
+workflow/hla-spechla-pg/source/hla_nom_g.txt
