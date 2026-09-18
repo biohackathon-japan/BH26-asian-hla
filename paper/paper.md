@@ -25,9 +25,9 @@ event: BH26JP
 biohackathon_name: "DBCLS BioHackathon 2026"
 biohackathon_url:   "https://2026.biohackathon.org/"
 biohackathon_location: "Matsuyama, Japan, 2026"
-group: YOUR-PROJECT-NAME-GOES-HERE
+group: asian-hla
 # URL to project git repo --- should contain the actual paper.md:
-git_url: https://github.com/biohackathon-japan/bh26-bhxiv-template
+git_url: https://github.com/biohackathon-japan/BH26-asian-hla
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
 authors_short: First Author \emph{et al.}
