@@ -1,0 +1,57 @@
+{
+  "cohorts": [
+    {
+      "cohort": "APR",
+      "haplotypes": 106,
+      "samples": 53
+    },
+    {
+      "cohort": "CPC-Chinese",
+      "haplotypes": 116,
+      "samples": 58
+    },
+    {
+      "cohort": "HPRC-EastAsian",
+      "haplotypes": 70,
+      "samples": 35
+    },
+    {
+      "cohort": "HPRC-Japanese",
+      "haplotypes": 32,
+      "samples": 16
+    },
+    {
+      "cohort": "HPRC-Jewish",
+      "haplotypes": 2,
+      "samples": 1
+    },
+    {
+      "cohort": "HPRC-Rest",
+      "haplotypes": 360,
+      "samples": 180
+    },
+    {
+      "cohort": "JaSaPaGe-Japanese",
+      "haplotypes": 20,
+      "samples": 10
+    },
+    {
+      "cohort": "JaSaPaGe-Saudi",
+      "haplotypes": 18,
+      "samples": 9
+    },
+    {
+      "cohort": "KPanRef-Korean",
+      "haplotypes": 28,
+      "samples": 14
+    },
+    {
+      "cohort": "REF",
+      "haplotypes": 2,
+      "samples": 2
+    }
+  ],
+  "haplotypes": 754,
+  "distinct_donors": 371,
+  "sample_entries": 376
+}

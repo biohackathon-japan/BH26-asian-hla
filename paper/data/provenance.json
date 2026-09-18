@@ -1,0 +1,26 @@
+{
+  "hla_paired.tsv": {
+    "source": "hla-asian50/refined/results/hla_paired.tsv",
+    "sha256": "edb5eeda125fb7a7a2960650326f955bb463800778904b3a99cc2a74ed83bdcb"
+  },
+  "named_HLA_scores.tsv": {
+    "source": "hla-asian50/refined/results/named_HLA_scores.tsv",
+    "sha256": "443377530655cc4a218e158613ef131ecda1a623b8a5db719b01e4ee15c8a904"
+  },
+  "named_HLA_summary.tsv": {
+    "source": "hla-asian50/refined/results/named_HLA_summary.tsv",
+    "sha256": "4ebfd1bb619d0e60ecafb9afdbffe9b87acd88a8417a5cda2ffc685d944c9ed9"
+  },
+  "variant_paired.tsv": {
+    "source": "hla-asian50/refined/results/variant_paired.tsv",
+    "sha256": "2b8d6858f2cb8d81e4e4b525ca01a9212aba7cab0540cc1cb9b754d34f74e717"
+  },
+  "variant_per_donor.tsv": {
+    "source": "hla-asian50/refined/results/variant_per_donor.tsv",
+    "sha256": "5e42d9a81b3b81e8b89f68704e32cc3a78d68a5ff52e5384c98366a27c87a083"
+  },
+  "variant_summary.tsv": {
+    "source": "hla-asian50/refined/results/variant_summary.tsv",
+    "sha256": "6254f88f088a020f585425cdb7aa0fb0e8a4fc3659e3f645c8097e2401b1e955"
+  }
+}

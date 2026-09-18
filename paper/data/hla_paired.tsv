@@ -1,0 +1,16 @@
+stratum	endpoint	baseline	donors	full_minus_baseline_pp	ci95_low_pp	ci95_high_pp	donors_better	donors_tied	donors_worse
+EAS	assembly_exact_CDS_twofield	Locityper_hprc	20	1.8867924528301883	-1.8749999999999933	5.660377358490565	4	14	2
+EAS	assembly_exact_CDS_twofield	PanGenie_whole_locus_full	20	86.16352201257862	81.13207547169812	90.625	20	0	0
+EAS	assembly_exact_CDS_twofield	PanGenie_whole_locus_hprc	20	85.53459119496856	80.625	90.0	20	0	0
+EAS	assembly_exact_CDS_twofield	SpecHLA	20	6.91823899371069	0.0	14.374999999999993	9	7	4
+EAS	assembly_exact_CDS_twofield	T1K	20	1.8867924528301883	-4.430379746835444	8.750000000000002	8	6	6
+EAS	experimental_twofield	Locityper_hprc	8	7.692307692307687	-2.777777777777779	20.000000000000007	3	4	1
+EAS	experimental_twofield	PanGenie_whole_locus_full	8	79.48717948717949	72.22222222222221	87.17948717948718	8	0	0
+EAS	experimental_twofield	PanGenie_whole_locus_hprc	8	79.48717948717949	71.7948717948718	87.17948717948718	8	0	0
+EAS	experimental_twofield	SpecHLA	8	-12.82051282051283	-23.684210526315784	-2.564102564102566	0	4	4
+EAS	experimental_twofield	T1K	8	-7.692307692307699	-21.62162162162162	5.263157894736848	2	2	4
+SAS	assembly_exact_CDS_twofield	Locityper_hprc	20	2.500000000000002	0.0	5.624999999999991	5	14	1
+SAS	assembly_exact_CDS_twofield	PanGenie_whole_locus_full	20	88.75	83.125	93.75	20	0	0
+SAS	assembly_exact_CDS_twofield	PanGenie_whole_locus_hprc	20	88.75	83.125	93.75	20	0	0
+SAS	assembly_exact_CDS_twofield	SpecHLA	20	20.625000000000004	11.875000000000002	29.374999999999996	13	6	1
+SAS	assembly_exact_CDS_twofield	T1K	20	14.375000000000004	5.000000000000004	22.500000000000007	13	4	3

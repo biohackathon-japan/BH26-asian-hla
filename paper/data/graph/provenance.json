@@ -1,0 +1,74 @@
+{
+  "pgr_tk": "pgr-pbundle-decomp pgr-bin 0.6.0 (main:102bdf5, release build, linux [x86_64] [rustc 1.85.0 (4d91de4e4 2025-02-17) (built from a source tarball)])",
+  "graphviz": "sfdp - graphviz version 2.42.4 (0)",
+  "layout": "Kamada-Kawai (unweighted) for >100 nodes; otherwise sfdp, overlap=prism, start=42; principal-axis rotation and isotropic scaling",
+  "inputs": {
+    "classII.fa": {
+      "sha256": "406aa0e35ea4aa44279d4676342db7be98a6e657e968660dc8e534cfd05d18c3",
+      "bytes": 427315003
+    },
+    "HLA-A.fa": {
+      "sha256": "33f32b808fe3cfd6e4fa3e3a8bcbb002b814c87fbc86001aa6366265b4cbf55f",
+      "bytes": 5779167
+    },
+    "HLA-DPB1.fa": {
+      "sha256": "2811e2363ef93a13f0926b3849eca25f18b556faafa073ea781f2963a529bc37",
+      "bytes": 11912342
+    },
+    "haplotype_donors.tsv": {
+      "sha256": "5014f14d9db1afa3776b695df0ed9eb1a04723764bda88219ad02e9ec1a2f7ca"
+    }
+  },
+  "bundles": {
+    "classII": {
+      "paths": 753,
+      "bundles": 890,
+      "adjacencies": 1469,
+      "command": "pgr-pbundle-decomp -w 48 -k 56 -r 2 --min-span 8 --min-cov 0 --min-branch-size 8 --bundle-length-cutoff 500 --bundle-merge-distance 2000 classII.fa classII"
+    },
+    "HLA-A": {
+      "paths": 753,
+      "bundles": 42,
+      "adjacencies": 72,
+      "command": "pgr-pbundle-decomp -w 48 -k 56 -r 2 --min-span 12 --min-cov 0 --min-branch-size 8 --bundle-length-cutoff 200 --bundle-merge-distance 1000 HLA-A.fa HLA-A"
+    },
+    "HLA-DPB1": {
+      "paths": 754,
+      "bundles": 23,
+      "adjacencies": 47,
+      "command": "pgr-pbundle-decomp -w 48 -k 56 -r 2 --min-span 12 --min-cov 0 --min-branch-size 8 --bundle-length-cutoff 200 --bundle-merge-distance 1000 HLA-DPB1.fa HLA-DPB1"
+    }
+  },
+  "structural_backbone": {
+    "segments": 1677,
+    "links": 2381,
+    "sha256": "460cbafb25875e818d9a5d154e69004d46e9fab8ba3defdd30a0940f486d815b"
+  },
+  "outputs": {
+    "HLA-A.bed.gz": "f5be7c3274c737ddca478b356efbc99edbb9ebb83d48ca9d7bab1e39a877db2e",
+    "HLA-A.json": "ad97ff3726e798d00c7858e670df5be0d611846b78cedee3e823dc65e62f259e",
+    "HLA-DPB1.bed.gz": "13fc672d269cc9a87f52821d536381ebfe404a65ac7a7d23a181db00e59b1245",
+    "HLA-DPB1.json": "a176ef335e3c22a011531a9a508e7f69a1970dd407583d8d01cdd5d08412c0e2",
+    "MHC.structural.json": "55e6b78158011b4ff199ffcbb9f375dcd1c4e65c5d64f78a93f0fff4e7bc0687",
+    "classII.bed.gz": "9deb0be188eb087e30b74ad2a674d02dc72bf9873cbe46587d05e2dedad67436",
+    "classII.json": "18de6444bf480ee93f3f12acdb774f0f79e8eeab447c26714e304d0cbe81d2f8",
+    "cohorts.json": "d9f8624bd71080b793914bc3fa3c2c40c47af355edaf295366c4b00059d3fdc3",
+    "natural_earth_countries.geojson": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f",
+    "reference_anchors.json": "0b2a4153f30faf71d30a010e8377d1c290887bfbd656f1745b093fc725066495"
+  },
+  "networkx": "3.6.1",
+  "source_locations": {
+    "classII.fa": "final construction panel, classII5/classII.fa; DRA to DMA with 20-kb flanks",
+    "HLA-A.fa": "hla-analysis/source/HLA-A.fa; final construction panel",
+    "HLA-DPB1.fa": "hla-analysis/source/HLA-DPB1.fa; final construction panel",
+    "MHC.sv.gfa.gz": "HLA/mhc_graph/MHC.sv.gfa.gz; Minigraph-Cactus construction output",
+    "haplotype_donors.tsv": "hla-typer/source/haplotype_donors.tsv"
+  },
+  "map": {
+    "source": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson",
+    "license": "Public domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "retrieved": "2026-09-18",
+    "sha256": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f"
+  }
+}
