@@ -1,6 +1,6 @@
 # BioHackathon wrap-up
 
-[Slides](slides.pdf) · [Source](slides.tex) · [Speaker notes](speaker-notes.md)
+[Slides (PDF)](slides.pdf) · [PowerPoint for import](slides.pptx) · [Source](slides.tex) · [Speaker notes](speaker-notes.md)
 
 Three slides: graph construction, paired SV/SNV improvement over HPRC, and
 Dawn's DogoHLA illustration. White backgrounds and scientific labels keep the
@@ -43,3 +43,7 @@ limits are in the speaker notes. The DogoHLA PNG is copied unchanged from
 ![Slide 1](render/slide-1.png)
 ![Slide 2](render/slide-2.png)
 ![Slide 3](render/slide-3.png)
+
+The PowerPoint copy contains high-resolution slide images and speaker notes,
+for importing into shared presentation tools. Edit scientific text in the
+LaTeX source and regenerate; the PowerPoint slide artwork is flattened.
